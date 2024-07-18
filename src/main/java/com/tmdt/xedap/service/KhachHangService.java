@@ -14,6 +14,9 @@ public interface KhachHangService {
 	
 	ResponseEntity<KhachHang> getDetailKH(String makh);
 	
+	ResponseEntity<KhachHang> getDetailKHByUsername(String username);
+
+	
 	ResponseEntity<String> registerUser(KhachHangDangKy khdk);
 	
 	ResponseEntity<String> deleteKH(String makh);

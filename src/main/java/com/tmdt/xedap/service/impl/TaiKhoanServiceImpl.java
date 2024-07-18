@@ -42,4 +42,33 @@ public class TaiKhoanServiceImpl implements TaiKhoanService{
 	
 	}
 
+	@Override
+	public ResponseEntity<String> changePassword(Login dataLogin) {
+		// TODO Auto-generated method stub
+		try {
+			TaiKhoan findTaiKhoan = tkRespository.findByUsername(dataLogin.getUsername());
+			
+		
+
+			if(findTaiKhoan == null) {
+				return new ResponseEntity<String>("Tài khoản không tồn tại!", HttpStatus.BAD_REQUEST);
+			}
+	
+			TaiKhoan tk = new TaiKhoan();
+			
+			tk.setPassword(dataLogin.getPassword());
+			tk.setUsername(findTaiKhoan.getUsername());
+			tk.setQuyen(findTaiKhoan.getQuyen());
+			
+			
+			tkRespository.save(tk);
+			
+			
+			
+			return new ResponseEntity<String>("Đổi mật khẩu thành công!", HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<String>("Đổi mật khẩu thất bại, vui lòng kiểm tra lại!", HttpStatus.BAD_REQUEST);
+		}
+	}
+
 }

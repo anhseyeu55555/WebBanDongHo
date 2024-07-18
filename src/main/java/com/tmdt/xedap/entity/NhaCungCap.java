@@ -20,6 +20,7 @@ public class NhaCungCap {
 	String sdt;
 	String email;
 	String diachi;
+	String slug;
 	
 	
 	@JsonIgnore
@@ -38,14 +39,15 @@ public class NhaCungCap {
 	}
 
 
-	public NhaCungCap(String mancc, String tenncc, String sdt, String email, String diachi, Collection<SanPham> sanpham,
-			Set<DonDatHang> dondathang) {
+	public NhaCungCap(String mancc, String tenncc, String sdt, String email, String diachi, String slug,
+			Collection<SanPham> sanpham, Set<DonDatHang> dondathang) {
 		super();
 		this.mancc = mancc;
 		this.tenncc = tenncc;
 		this.sdt = sdt;
 		this.email = email;
 		this.diachi = diachi;
+		this.slug = slug;
 		this.sanpham = sanpham;
 		this.dondathang = dondathang;
 	}
@@ -101,6 +103,16 @@ public class NhaCungCap {
 	}
 
 
+	public String getSlug() {
+		return slug;
+	}
+
+
+	public void setSlug(String slug) {
+		this.slug = slug;
+	}
+
+
 	public Collection<SanPham> getSanpham() {
 		return sanpham;
 	}
@@ -119,9 +131,6 @@ public class NhaCungCap {
 	public void setDondathang(Set<DonDatHang> dondathang) {
 		this.dondathang = dondathang;
 	}
-
-
-	
 
 	
 }

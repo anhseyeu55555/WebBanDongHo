@@ -14,6 +14,8 @@ public interface NhanVienService {
 	
 	ResponseEntity<NhanVien> getDetailNV(String manv);
 	
+	ResponseEntity<NhanVien> getDetailNVByUsername(String username);
+	
 	ResponseEntity<String> addNV(NhanVienDangKy nvdk);
 	
 	ResponseEntity<String> deleteNV(String manv);

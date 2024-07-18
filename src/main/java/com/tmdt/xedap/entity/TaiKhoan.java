@@ -20,6 +20,7 @@ public class TaiKhoan {
 	@Id
 	private String username;
 	
+	@JsonIgnore
 	private String password;
 	
 	@JsonIgnore

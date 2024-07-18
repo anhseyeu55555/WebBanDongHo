@@ -133,4 +133,21 @@ public class NhanVienServiceImpl implements NhanVienService{
 		}
 	}
 
+	@Override
+	public ResponseEntity<NhanVien> getDetailNVByUsername(String username) {
+		try {
+			NhanVien findNV = nvRepository.findByUsername(username);
+
+			if(findNV == null){
+				return new ResponseEntity<NhanVien>(new NhanVien(), HttpStatus.BAD_REQUEST);
+			}
+			
+
+			return new ResponseEntity<NhanVien>(findNV, HttpStatus.OK);
+		} catch (Exception e) {
+			System.out.println(e);
+			return new ResponseEntity<NhanVien>(new NhanVien(), HttpStatus.BAD_REQUEST);
+		}
+	}
+
 }

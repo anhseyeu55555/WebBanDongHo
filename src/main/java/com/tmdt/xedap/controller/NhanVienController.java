@@ -38,6 +38,12 @@ public class NhanVienController {
 		return nvDetail;
 	}
 	
+	@GetMapping("/nhanvien/profile/{username}")
+	public ResponseEntity<NhanVien> getDetailNVByUsername(@PathVariable("username") String username){
+		ResponseEntity<NhanVien> nvDetail = nvService.getDetailNVByUsername(username);
+		return nvDetail;
+	}
+	
 	@PostMapping("/nhanvien")
 	public ResponseEntity<String> addNV(@Validated @RequestBody NhanVienDangKy nvdk){
 		

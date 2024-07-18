@@ -19,6 +19,7 @@ import com.tmdt.xedap.model.UpdateDonHangModel;
 import com.tmdt.xedap.model.DonHangModel;
 import com.tmdt.xedap.repository.CT_DonHangRepository;
 import com.tmdt.xedap.repository.DonHangRepository;
+import com.tmdt.xedap.repository.GioHangRepository;
 import com.tmdt.xedap.repository.KhachHangRepository;
 import com.tmdt.xedap.repository.NhanVienRepository;
 import com.tmdt.xedap.service.DonHangService;
@@ -38,6 +39,9 @@ public class DonHangServiceImpl implements DonHangService{
 	@Autowired
 	private NhanVienRepository nvRepository;
 
+	@Autowired
+	private GioHangRepository ghRepository;
+	
 
 	@Override
 	public List<DonHang> getListDonHangByKH(String makh) {
@@ -118,7 +122,8 @@ public class DonHangServiceImpl implements DonHangService{
 				return new ResponseEntity<String>("Đã xảy ra lỗi, thêm chi tiết đơn hàng thất bại!", HttpStatus.BAD_REQUEST);
 			}
 		
-			return new ResponseEntity<String>("Thêm đơn hàng thành công!", HttpStatus.BAD_REQUEST);
+			ghRepository.deleteGioHangByMakh(dhModel.getMakh());
+			return new ResponseEntity<String>("Thêm đơn hàng thành công!", HttpStatus.OK);
 		} catch (Exception e) {
 			// TODO: handle exception
 			return new ResponseEntity<String>("Đã xảy ra lỗi, thêm đơn hàng thất bại!", HttpStatus.BAD_REQUEST);
@@ -157,7 +162,7 @@ public class DonHangServiceImpl implements DonHangService{
 		
 		dhRepository.save(updateDH);
 		
-		return new ResponseEntity<String>("Update đơn hàng thành công!", HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<String>("Update đơn hàng thành công!", HttpStatus.OK);
 	} catch (Exception e) {
 		// TODO: handle exception
 		return new ResponseEntity<String>("Đã xảy ra lỗi, thêm đơn hàng thất bại!", HttpStatus.BAD_REQUEST);

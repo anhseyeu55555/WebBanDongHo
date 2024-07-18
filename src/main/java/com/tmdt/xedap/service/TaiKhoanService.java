@@ -8,4 +8,6 @@ import com.tmdt.xedap.model.LoginRes;
 public interface TaiKhoanService {
 
 	ResponseEntity<LoginRes> login(Login dataLogin);
+	
+	ResponseEntity<String> changePassword(Login dataLogin);
 }

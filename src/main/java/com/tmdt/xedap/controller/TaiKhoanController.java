@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,6 +23,11 @@ public class TaiKhoanController {
 	@PostMapping("/login")
 	public ResponseEntity<LoginRes> login(@Validated @RequestBody Login dataLogin){
 		return tkService.login(dataLogin);
+	}
+	
+	@PutMapping("/change-password")
+	public ResponseEntity<String> changPassword(@Validated @RequestBody Login dataChangePassword){
+		return tkService.changePassword(dataChangePassword);
 	}
 
 }

@@ -131,4 +131,20 @@ public class KhachHangServiceImpl implements KhachHangService{
 		}
 	}
 
+	@Override
+	public ResponseEntity<KhachHang> getDetailKHByUsername(String username) {
+		// TODO Auto-generated method stub
+		try {
+			KhachHang kh = khRepository.findByUsername(username);
+			
+			if(kh == null) {
+				return new ResponseEntity<KhachHang>(new KhachHang(), HttpStatus.BAD_REQUEST);
+			}
+			
+			return new ResponseEntity<KhachHang>(kh, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<KhachHang>(new KhachHang(), HttpStatus.BAD_REQUEST);
+		}
+	}
+
 }

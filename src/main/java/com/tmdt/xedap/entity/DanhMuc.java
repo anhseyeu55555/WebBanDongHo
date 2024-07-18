@@ -17,6 +17,7 @@ public class DanhMuc {
 	@Id
 	String madm;
 	String tendm;
+	String slug;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "danhmuc")
@@ -27,9 +28,12 @@ public class DanhMuc {
 		// TODO Auto-generated constructor stub
 	}
 
-	public DanhMuc(String madm, String tendm, Collection<SanPham> sanpham) {
+	public DanhMuc(String madm, String tendm, String slug, Collection<SanPham> sanpham) {
 		super();
 		this.madm = madm;
+		this.tendm = tendm;
+		this.slug = slug;
+		this.sanpham = sanpham;
 	}
 
 	public String getMadm() {
@@ -48,6 +52,14 @@ public class DanhMuc {
 		this.tendm = tendm;
 	}
 
+	public String getSlug() {
+		return slug;
+	}
+
+	public void setSlug(String slug) {
+		this.slug = slug;
+	}
+
 	public Collection<SanPham> getSanpham() {
 		return sanpham;
 	}
@@ -55,10 +67,6 @@ public class DanhMuc {
 	public void setSanpham(Collection<SanPham> sanpham) {
 		this.sanpham = sanpham;
 	}
-	
-	
-	
-	
 	
 	
 	

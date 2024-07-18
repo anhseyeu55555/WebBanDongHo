@@ -16,7 +16,7 @@ public class ThuongHieu {
 	@Id
 	String math;
 	String tenth;
-	
+	String slug;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "thuonghieu")
@@ -29,10 +29,11 @@ public class ThuongHieu {
 	}
 
 
-	public ThuongHieu(String math, String tenth, Collection<SanPham> sanpham) {
+	public ThuongHieu(String math, String tenth, String slug, Collection<SanPham> sanpham) {
 		super();
 		this.math = math;
 		this.tenth = tenth;
+		this.slug = slug;
 		this.sanpham = sanpham;
 	}
 
@@ -57,6 +58,16 @@ public class ThuongHieu {
 	}
 
 
+	public String getSlug() {
+		return slug;
+	}
+
+
+	public void setSlug(String slug) {
+		this.slug = slug;
+	}
+
+
 	public Collection<SanPham> getSanpham() {
 		return sanpham;
 	}
@@ -65,9 +76,6 @@ public class ThuongHieu {
 	public void setSanpham(Collection<SanPham> sanpham) {
 		this.sanpham = sanpham;
 	}
-	
-	
-	
-	
-	
+
+
 }

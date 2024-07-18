@@ -69,7 +69,7 @@ public class GioHangServiceImpl implements GioHangService {
 			}
 			else
 			{
-				gh.setSoluong(findSPGioHang.getSoluong() + 1);
+				gh.setSoluong(findSPGioHang.getSoluong() + soluong);
 			}
 			
 			ghRepository.save(gh);

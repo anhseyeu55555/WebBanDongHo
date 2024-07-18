@@ -33,8 +33,14 @@ public class KhachHangController {
 	}
 	
 	@GetMapping("/user/{makh}")
-	public ResponseEntity<KhachHang> getDetailNV(@PathVariable("makh") String makh) {
+	public ResponseEntity<KhachHang> getDetailKH(@PathVariable("makh") String makh) {
 		 ResponseEntity<KhachHang> khDetail = khService.getDetailKH(makh);
+		return khDetail;
+	}
+	
+	@GetMapping("/user/username/{username}")
+	public ResponseEntity<KhachHang> getDetailKhByUsername(@PathVariable("username") String username) {
+		 ResponseEntity<KhachHang> khDetail = khService.getDetailKHByUsername(username);
 		return khDetail;
 	}
 	
