@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tmdt.xedap.entity.NhaCungCap;
@@ -62,6 +63,14 @@ public class SanPhamController {
 		List<SanPham> listSP = spService.getListSanPhamByNCC(mancc);
 		return listSP;
 	}
+	
+	@GetMapping("/sanpham/search")
+	public List<SanPham> getDetailSPBySearch(@RequestParam("query") String query) {
+		System.out.println(query);
+		List<SanPham> listSP = spService.getListSanPhamBySearch(query);
+		return listSP;
+	}
+	
 	
 	@PostMapping("/sanpham")
 	public ResponseEntity<String> addSanPham(@Validated @RequestBody SanPhamModel sanpham){

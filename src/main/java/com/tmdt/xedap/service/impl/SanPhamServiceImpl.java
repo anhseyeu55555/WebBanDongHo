@@ -191,6 +191,12 @@ public class SanPhamServiceImpl implements SanPhamService{
 		return spRepository.getSPByNew();
 	}
 
+	@Override
+	public List<SanPham> getListSanPhamBySearch(String search) {
+		// TODO Auto-generated method stub
+		return spRepository.getSPBySearch(search);
+	}
+
 
 
 }

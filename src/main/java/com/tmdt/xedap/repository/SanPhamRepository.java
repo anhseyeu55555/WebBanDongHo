@@ -26,4 +26,7 @@ public interface SanPhamRepository extends JpaRepository<SanPham, String>{
 	
 	@Query(value = "select * from san_pham where trangthai = 0",nativeQuery = true)
 	List<SanPham> getSPByNew();
+	
+	@Query(value = "SELECT * FROM san_pham WHERE tensp LIKE %?1%", nativeQuery = true)
+	List<SanPham> getSPBySearch(String search);
 }

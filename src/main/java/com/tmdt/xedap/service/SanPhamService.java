@@ -25,4 +25,5 @@ public interface SanPhamService {
 	List<SanPham> getListSanPhamByTH(String math);
 	List<SanPham> getListSanPhamByNCC(String mancc);
 	List<SanPham> getListSanPhamByNew();
+	List<SanPham> getListSanPhamBySearch(String search);
 }
