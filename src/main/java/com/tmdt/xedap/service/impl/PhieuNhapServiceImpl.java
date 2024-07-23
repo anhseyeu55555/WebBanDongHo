@@ -72,8 +72,10 @@ public class PhieuNhapServiceImpl implements PhieuNhapService
 			}
 			
 			PhieuNhap pn = new PhieuNhap();
+			
+			String maPN = "PN" +  System.currentTimeMillis() % 10000000;
 		
-			pn.setMapn(pnModel.getMapn());
+			pn.setMapn(maPN);
 			pn.setDondathang(findDDH);
 			pn.setNhanvien(findNV);
 			pn.setNgaydat(LocalDate.now());
@@ -87,9 +89,6 @@ public class PhieuNhapServiceImpl implements PhieuNhapService
 				for(CT_DonDatHangModel ds: listDS) {
 					CT_PhieuNhap ct_pn = new CT_PhieuNhap();
 					CT_PhieuNhap_ID ct_pn_id = new CT_PhieuNhap_ID(pnModel.getMaddh(), ds.getMasp());
-					
-					
-				
 					
 					ct_pn.setId(ct_pn_id);
 					ct_pn.setPhieunhap(pn);

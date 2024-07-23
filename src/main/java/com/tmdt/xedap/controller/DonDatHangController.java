@@ -26,7 +26,8 @@ public class DonDatHangController {
 	@Autowired
 	private DonDatHangService ddhService;
 	
-	@Autowired CT_DonDatHangService ct_ddhService;
+	@Autowired 
+	private CT_DonDatHangService ct_ddhService;
 	
 	
 	@GetMapping("/dondathang")

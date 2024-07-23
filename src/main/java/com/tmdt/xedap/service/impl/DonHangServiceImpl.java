@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.tmdt.xedap.entity.CT_DonHang;
 import com.tmdt.xedap.entity.CT_DonHang_ID;
 import com.tmdt.xedap.entity.DonHang;
+import com.tmdt.xedap.entity.HoaDon;
 import com.tmdt.xedap.entity.KhachHang;
 import com.tmdt.xedap.entity.NhanVien;
 import com.tmdt.xedap.entity.SanPham;
@@ -20,8 +21,10 @@ import com.tmdt.xedap.model.DonHangModel;
 import com.tmdt.xedap.repository.CT_DonHangRepository;
 import com.tmdt.xedap.repository.DonHangRepository;
 import com.tmdt.xedap.repository.GioHangRepository;
+import com.tmdt.xedap.repository.HoaDonRepository;
 import com.tmdt.xedap.repository.KhachHangRepository;
 import com.tmdt.xedap.repository.NhanVienRepository;
+import com.tmdt.xedap.repository.SanPhamRepository;
 import com.tmdt.xedap.service.DonHangService;
 
 @Service
@@ -41,6 +44,12 @@ public class DonHangServiceImpl implements DonHangService{
 
 	@Autowired
 	private GioHangRepository ghRepository;
+	
+	@Autowired 
+	private SanPhamRepository spRepository;
+	
+	@Autowired
+	private HoaDonRepository hdRepository;
 	
 
 	@Override
@@ -97,6 +106,17 @@ public class DonHangServiceImpl implements DonHangService{
 			
 			dhRepository.save(dh);
 			
+			
+			HoaDon hd = new HoaDon();
+			
+			String mahd = "HD" +  System.currentTimeMillis() % 10000000;
+			
+			hd.setDonhang(dh);
+			hd.setMahd(mahd);
+			hd.setNgaylap(LocalDate.now());
+			hd.setThanhtien(tongTien);
+			hdRepository.save(hd);
+			
 
 			try {
 				List<SanPhamDatHangModel> listDS = dhModel.getDsSanPham();
@@ -110,19 +130,29 @@ public class DonHangServiceImpl implements DonHangService{
 					ctdh.setSoluong(item.getSoluong());
 					ctdh.setGia(item.getDongia());
 					
-					SanPham sp = new SanPham();
-					sp.setMasp(item.getMasp());
-					ctdh.setSanpham(sp);
+					SanPham findSP = spRepository.findByMasp(item.getMasp());
+					
+//					SanPham sp = new SanPham();
+//					sp.setMasp(item.getMasp());
+					ctdh.setSanpham(findSP);
+					
+					SanPham updateSP = findSP;
+					int updateSoLuongSP = findSP.getSoluong() - item.getSoluong();
+					
+					updateSP.setSoluong(updateSoLuongSP);
+					
+					spRepository.save(updateSP);
+					
 					
 					ctdhRepository.save(ctdh);
+					
+					ghRepository.deleteGioHangByMakhAndMasp(dhModel.getMakh(), findSP.getMasp());
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
 				System.out.println(e);
 				return new ResponseEntity<String>("Đã xảy ra lỗi, thêm chi tiết đơn hàng thất bại!", HttpStatus.BAD_REQUEST);
 			}
-		
-			ghRepository.deleteGioHangByMakh(dhModel.getMakh());
 			return new ResponseEntity<String>("Thêm đơn hàng thành công!", HttpStatus.OK);
 		} catch (Exception e) {
 			// TODO: handle exception

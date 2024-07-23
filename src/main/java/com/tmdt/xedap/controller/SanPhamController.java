@@ -66,7 +66,6 @@ public class SanPhamController {
 	
 	@GetMapping("/sanpham/search")
 	public List<SanPham> getDetailSPBySearch(@RequestParam("query") String query) {
-		System.out.println(query);
 		List<SanPham> listSP = spService.getListSanPhamBySearch(query);
 		return listSP;
 	}
