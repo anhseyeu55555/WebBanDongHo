@@ -77,7 +77,6 @@ public class SanPhamServiceImpl implements SanPhamService{
 	public ResponseEntity<String> addSanPham(SanPhamModel sanpham) {
 		// TODO Auto-generated method stub
 		try {
-			System.out.println(sanpham);
 			SanPham findSlugSP = spRepository.findBySlug(sanpham.getSlug());
 			
 			if(findSlugSP != null){
@@ -195,6 +194,12 @@ public class SanPhamServiceImpl implements SanPhamService{
 	public List<SanPham> getListSanPhamBySearch(String search) {
 		// TODO Auto-generated method stub
 		return spRepository.getSPBySearch(search);
+	}
+
+	@Override
+	public List<SanPham> getListSanPhamBestSeller() {
+		// TODO Auto-generated method stub
+		return spRepository.getListBestSeller();
 	}
 
 

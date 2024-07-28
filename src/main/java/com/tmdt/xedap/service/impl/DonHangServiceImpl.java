@@ -139,6 +139,10 @@ public class DonHangServiceImpl implements DonHangService{
 					SanPham updateSP = findSP;
 					int updateSoLuongSP = findSP.getSoluong() - item.getSoluong();
 					
+					if(updateSoLuongSP < 0) {
+						return new ResponseEntity<String>("Sản phẩm " + findSP.getTensp() + " không đủ số lượng bán, vui lòng kiểm tra lại!", HttpStatus.BAD_REQUEST);
+					}
+					
 					updateSP.setSoluong(updateSoLuongSP);
 					
 					spRepository.save(updateSP);
@@ -188,6 +192,22 @@ public class DonHangServiceImpl implements DonHangService{
 		if(findNVGH != null) {
 			updateDH.setGiaohang(findNVGH);
 		}
+		
+		if(updateDHModel.getTrangthai() == 4) {
+			List<CT_DonHang> findCTDH = ctdhRepository.findBymadh(findDH.getMadh());
+			for(CT_DonHang item: findCTDH) {		
+				SanPham findSP = spRepository.findByMasp(item.getSanpham().getMasp());
+				
+				SanPham updateSP = findSP;
+				int updateSoLuongSP = findSP.getSoluong() + item.getSoluong();
+			
+				updateSP.setSoluong(updateSoLuongSP);
+				
+				spRepository.save(updateSP);
+			}
+			
+		}
+		
 		updateDH.setNhanvien(findNV);
 		
 		dhRepository.save(updateDH);

@@ -71,4 +71,28 @@ public class TaiKhoanServiceImpl implements TaiKhoanService{
 		}
 	}
 
+	@Override
+	public ResponseEntity<LoginRes> getDetailTaiKhoan(String username) {
+		try {
+			TaiKhoan findTaiKhoan = tkRespository.findByUsername(username);
+			
+		
+		
+			if(findTaiKhoan == null) {
+				return new ResponseEntity<LoginRes>(new LoginRes(), HttpStatus.BAD_REQUEST);
+			}
+			
+			LoginRes res = new LoginRes();
+			
+			res.setUsername(findTaiKhoan.getUsername());
+			res.setQuyen(findTaiKhoan.getQuyen().getMaquyen());
+			
+			
+			
+			return new ResponseEntity<LoginRes>(res, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<LoginRes>(new LoginRes(), HttpStatus.BAD_REQUEST);
+		}
+	}
+
 }

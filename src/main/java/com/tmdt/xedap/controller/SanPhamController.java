@@ -70,6 +70,11 @@ public class SanPhamController {
 		return listSP;
 	}
 	
+	@GetMapping("/sanpham/best-seller")
+	public List<SanPham> getListSPBestSeller() {
+		List<SanPham> listSP = spService.getListSanPhamBestSeller();
+		return listSP;
+	}
 	
 	@PostMapping("/sanpham")
 	public ResponseEntity<String> addSanPham(@Validated @RequestBody SanPhamModel sanpham){
@@ -82,7 +87,6 @@ public class SanPhamController {
 		return spService.deleteSanPham(masp);
 	}
 
-	
 	@PutMapping("/sanpham/{masp}")
 	public ResponseEntity<SanPham> updateNhaCungCap(@PathVariable("masp") String masp, @Validated @RequestBody SanPham sanpham) {
 		return spService.updateSP(masp,sanpham);
