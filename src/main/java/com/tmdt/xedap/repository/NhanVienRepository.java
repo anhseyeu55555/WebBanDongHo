@@ -16,4 +16,7 @@ public interface NhanVienRepository extends JpaRepository<NhanVien, String> {
 	NhanVien findByUsername(String username);
 	
 
+	@Query(value="select * from nhan_vien where email = ?1", nativeQuery = true)
+	NhanVien findByEmail(String email);
+	
 }

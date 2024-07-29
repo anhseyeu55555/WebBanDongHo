@@ -14,4 +14,8 @@ public interface KhachHangRepository extends JpaRepository<KhachHang, String>{
 	@Query(value="select * from khach_hang where username = ?1", nativeQuery = true)
 	KhachHang findByUsername(String username);
 	
+	
+	@Query(value="select * from khach_hang where email = ?1", nativeQuery = true)
+	KhachHang findByEmail(String email);
+	
 }

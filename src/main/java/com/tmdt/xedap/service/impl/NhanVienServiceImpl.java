@@ -59,13 +59,13 @@ public class NhanVienServiceImpl implements NhanVienService{
 				return new ResponseEntity<String>("Username đã tồn tại!", HttpStatus.BAD_REQUEST);
 			}
 			
-//			NhanVien findNV = nvRepository.findByUsername(nvdk.getUsername());
+			NhanVien findNV = nvRepository.findByEmail(nvdk.getEmail());
 
 			
-//			if(findNV.getEmail().equals(nvdk.getEmail())){
-//				return new ResponseEntity<String>("Địa chỉ email đã tồn tại", HttpStatus.BAD_REQUEST);
-//			}
-//			
+			if(findNV != null){
+				return new ResponseEntity<String>("Địa chỉ email đã tồn tại", HttpStatus.BAD_REQUEST);
+			}
+			
 //			if(findNV.getSdt().equals(nvdk.getSdt())){
 //				return new ResponseEntity<String>("Số điện thoại đã tồn tại", HttpStatus.BAD_REQUEST);
 //			}
