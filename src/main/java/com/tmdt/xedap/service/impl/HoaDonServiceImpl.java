@@ -43,7 +43,6 @@ public class HoaDonServiceImpl implements HoaDonService{
 			
 			String maHD = "HD" +  System.currentTimeMillis() % 10000000;
 			
-			
 			hd.setDonhang(findDH);
 			hd.setMahd(maHD);
 			hd.setNgaylap(LocalDate.now());
