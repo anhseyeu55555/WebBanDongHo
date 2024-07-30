@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.tmdt.xedap.entity.DonHang;
 import com.tmdt.xedap.model.DonHangModel;
+import com.tmdt.xedap.model.DonThuThang;
 import com.tmdt.xedap.model.UpdateDonHangModel;
 
 public interface DonHangService {
@@ -21,4 +22,6 @@ public interface DonHangService {
 	ResponseEntity<String> addDonHang(DonHangModel dhModel);
 	
 	ResponseEntity<String> updateDonHang(UpdateDonHangModel updateDHModel);
+	
+	double[] getThongKeByYear();
 }

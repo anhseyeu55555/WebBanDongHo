@@ -1,5 +1,6 @@
 package com.tmdt.xedap.service.impl;
 
+import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import com.tmdt.xedap.entity.SanPham;
 import com.tmdt.xedap.model.SanPhamDatHangModel;
 import com.tmdt.xedap.model.UpdateDonHangModel;
 import com.tmdt.xedap.model.DonHangModel;
+import com.tmdt.xedap.model.DonThuThang;
 import com.tmdt.xedap.repository.CT_DonHangRepository;
 import com.tmdt.xedap.repository.DonHangRepository;
 import com.tmdt.xedap.repository.GioHangRepository;
@@ -217,6 +219,20 @@ public class DonHangServiceImpl implements DonHangService{
 		// TODO: handle exception
 		return new ResponseEntity<String>("Đã xảy ra lỗi, thêm đơn hàng thất bại!", HttpStatus.BAD_REQUEST);
 	}
+	}
+
+	@Override
+	public double[] getThongKeByYear(){
+		  List<DonThuThang> doanhThuList = dhRepository.getThongKeByYear();
+		  
+		  double[] doanhThuThang = new double[12];
+
+	        for (DonThuThang item : doanhThuList) {
+	            doanhThuThang[item.getThang() - 1] = item.getTongDoanhThu();
+	        }
+	       
+	       return doanhThuThang;
+	
 	}
 
 }

@@ -56,4 +56,9 @@ public class DonHangController {
 		return dhService.updateDonHang(updateDHModel);
 	}
 	
+	@GetMapping("/donhang/thongke")
+	public double[] getThongKeByYear(){
+		return  dhService.getThongKeByYear();
+	}
+	
 }
