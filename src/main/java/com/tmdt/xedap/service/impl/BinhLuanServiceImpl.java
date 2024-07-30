@@ -34,7 +34,7 @@ public class BinhLuanServiceImpl implements BinhLuanService {
 	@Override
 	public List<BinhLuan> getListService() {
 		// TODO Auto-generated method stub
-		return blRepository.findAll();
+		return blRepository.getListBinhLuanSort();
 	}
 
 	@Override
