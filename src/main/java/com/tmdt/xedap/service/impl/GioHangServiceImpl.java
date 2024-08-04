@@ -65,7 +65,7 @@ public class GioHangServiceImpl implements GioHangService {
 			
 			
 			if(findSPGioHang == null) {
-				gh.setSoluong(1);
+				gh.setSoluong(soluong);
 			}
 			else
 			{
