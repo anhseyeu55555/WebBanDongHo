@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tmdt.xedap.entity.BinhLuan;
-import com.tmdt.xedap.model.BinhLuanModel;
+import com.tmdt.xedap.dto.BinhLuanModel;
 import com.tmdt.xedap.service.BinhLuanService;
 
 @CrossOrigin

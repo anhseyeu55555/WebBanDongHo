@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.tmdt.xedap.entity.KhachHang;
 import com.tmdt.xedap.entity.Quyen;
 import com.tmdt.xedap.entity.TaiKhoan;
-import com.tmdt.xedap.model.KhachHangDangKy;
+import com.tmdt.xedap.dto.KhachHangDangKy;
 import com.tmdt.xedap.repository.KhachHangRepository;
 import com.tmdt.xedap.repository.TaiKhoanRepository;
 import com.tmdt.xedap.service.KhachHangService;

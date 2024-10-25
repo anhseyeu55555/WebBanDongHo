@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 
 
 import com.tmdt.xedap.entity.DonDatHang;
-import com.tmdt.xedap.model.DonDatHangModel;
+import com.tmdt.xedap.dto.DonDatHangModel;
 
 public interface DonDatHangService {
 

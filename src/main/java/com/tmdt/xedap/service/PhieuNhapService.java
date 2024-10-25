@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 
 import com.tmdt.xedap.entity.PhieuNhap;
-import com.tmdt.xedap.model.PhieuNhapModel;
+import com.tmdt.xedap.dto.PhieuNhapModel;
 
 public interface PhieuNhapService {
 	

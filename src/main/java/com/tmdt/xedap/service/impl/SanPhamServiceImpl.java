@@ -11,7 +11,7 @@ import com.tmdt.xedap.entity.DanhMuc;
 import com.tmdt.xedap.entity.NhaCungCap;
 import com.tmdt.xedap.entity.SanPham;
 import com.tmdt.xedap.entity.ThuongHieu;
-import com.tmdt.xedap.model.SanPhamModel;
+import com.tmdt.xedap.dto.SanPhamModel;
 import com.tmdt.xedap.repository.DanhMucRepository;
 import com.tmdt.xedap.repository.NhaCungCapRepository;
 import com.tmdt.xedap.repository.SanPhamRepository;
@@ -108,19 +108,19 @@ public class SanPhamServiceImpl implements SanPhamService{
 			}
 			
 			SanPham dataAddSP = new SanPham();
-			dataAddSP.setMasp(sanpham.getMasp());
-			dataAddSP.setTensp(sanpham.getTensp());
+			dataAddSP.setMaSp(sanpham.getMasp());
+			dataAddSP.setTenSp(sanpham.getTensp());
 			dataAddSP.setSlug(sanpham.getSlug());
-			dataAddSP.setSoluong(sanpham.getSoluong());
-			dataAddSP.setDongia(sanpham.getDongia());
-			dataAddSP.setChitietSP(sanpham.getChitietSP());
+			dataAddSP.setSoLuong(sanpham.getSoluong());
+			dataAddSP.setDonGia(sanpham.getDongia());
+			dataAddSP.setChiTietSp(sanpham.getChitietSP());
 			dataAddSP.setImage(sanpham.getImage());
 			dataAddSP.setImage2(sanpham.getImage2());
 			dataAddSP.setImage3(sanpham.getImage3());
-			dataAddSP.setTrangthai(sanpham.getTrangthai());
-			dataAddSP.setThuonghieu(findTH);
-			dataAddSP.setDanhmuc(findDM);
-			dataAddSP.setNhacungcap(findNCC);
+			dataAddSP.setTrangThai(sanpham.getTrangthai());
+			dataAddSP.setThuongHieu(findTH);
+			dataAddSP.setDanhMuc(findDM);
+			dataAddSP.setNhaCungCap(findNCC);
 			
 			
 			spRepository.save(dataAddSP);
@@ -182,12 +182,6 @@ public class SanPhamServiceImpl implements SanPhamService{
 	public List<SanPham> getListSanPhamByNCC(String mancc) {
 		// TODO Auto-generated method stub
 		return spRepository.getSPByMaNcc(mancc);
-	}
-
-	@Override
-	public List<SanPham> getListSanPhamByNew() {
-		// TODO Auto-generated method stub
-		return spRepository.getSPByNew();
 	}
 
 	@Override

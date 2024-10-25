@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tmdt.xedap.entity.CT_DonDatHang;
+import com.tmdt.xedap.entity.CT_DonNhapHang;
 import com.tmdt.xedap.entity.DonDatHang;
-import com.tmdt.xedap.model.DonDatHangModel;
+import com.tmdt.xedap.dto.DonDatHangModel;
 import com.tmdt.xedap.service.CT_DonDatHangService;
 import com.tmdt.xedap.service.DonDatHangService;
 
@@ -37,7 +37,7 @@ public class DonDatHangController {
 	}
 	
 	@GetMapping("/dondathang/chitiet/{maddh}")
-	public List<CT_DonDatHang> getCT_Ddh(@PathVariable("maddh") String maddh){
+	public List<CT_DonNhapHang> getCT_Ddh(@PathVariable("maddh") String maddh){
 
 		return ct_ddhService.getDetailCTDdh(maddh);
 	}

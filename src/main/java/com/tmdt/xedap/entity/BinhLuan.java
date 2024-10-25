@@ -1,83 +1,38 @@
 package com.tmdt.xedap.entity;
 
-import java.util.Date;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.Date;
 
 
 @Entity
 @Table(name = "binh_luan")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class BinhLuan {
 
-	@Id
-	private String mabl;
-	private String noidung;
-	
-	private Date time;
-	
-	@ManyToOne
-	@JoinColumn(name="makh")
-	private KhachHang khachhang;
-	
-	@ManyToOne
-	@JoinColumn(name="masp")
-	private SanPham sanpham;
+    @Id
+    private String maBl;
+    private String noiDung;
 
-	public BinhLuan() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    private Date time;
 
-	public BinhLuan(String mabl, String noidung, Date time, KhachHang khachhang, SanPham sanpham) {
-		super();
-		this.mabl = mabl;
-		this.noidung = noidung;
-		this.time = time;
-		this.khachhang = khachhang;
-		this.sanpham = sanpham;
-	}
+    @ManyToOne
+    @JoinColumn(name = "makh")
+    private KhachHang khachHang;
 
-	public String getMabl() {
-		return mabl;
-	}
+    @ManyToOne
+    @JoinColumn(name = "masp")
+    private SanPham sanPham;
 
-	public void setMabl(String mabl) {
-		this.mabl = mabl;
-	}
-
-	public String getNoidung() {
-		return noidung;
-	}
-
-	public void setNoidung(String noidung) {
-		this.noidung = noidung;
-	}
-
-	public Date getTime() {
-		return time;
-	}
-
-	public void setTime(Date time) {
-		this.time = time;
-	}
-
-	public KhachHang getKhachhang() {
-		return khachhang;
-	}
-
-	public void setKhachhang(KhachHang khachhang) {
-		this.khachhang = khachhang;
-	}
-
-	public SanPham getSanpham() {
-		return sanpham;
-	}
-
-	public void setSanpham(SanPham sanpham) {
-		this.sanpham = sanpham;
-	}
 }

@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tmdt.xedap.entity.DonHang;
-import com.tmdt.xedap.model.DonHangModel;
-import com.tmdt.xedap.model.UpdateDonHangModel;
+import com.tmdt.xedap.dto.DonHangModel;
+import com.tmdt.xedap.dto.UpdateDonHangModel;
 import com.tmdt.xedap.service.DonHangService;
 
 @RestController

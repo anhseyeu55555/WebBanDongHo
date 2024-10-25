@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tmdt.xedap.model.ForgotPasswordModel;
-import com.tmdt.xedap.model.MailModel;
+import com.tmdt.xedap.dto.ForgotPasswordModel;
+import com.tmdt.xedap.dto.MailModel;
 import com.tmdt.xedap.service.MailService;
 
 @RestController

@@ -9,10 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.tmdt.xedap.entity.BinhLuan;
-import com.tmdt.xedap.entity.DanhMuc;
 import com.tmdt.xedap.entity.KhachHang;
 import com.tmdt.xedap.entity.SanPham;
-import com.tmdt.xedap.model.BinhLuanModel;
+import com.tmdt.xedap.dto.BinhLuanModel;
 import com.tmdt.xedap.repository.BinhLuanRepository;
 import com.tmdt.xedap.repository.KhachHangRepository;
 import com.tmdt.xedap.repository.SanPhamRepository;
@@ -34,7 +33,7 @@ public class BinhLuanServiceImpl implements BinhLuanService {
 	@Override
 	public List<BinhLuan> getListService() {
 		// TODO Auto-generated method stub
-		return blRepository.getListBinhLuanSort();
+		return blRepository.getAllBinhLuanOrderByTimeDesc();
 	}
 
 	@Override
@@ -47,7 +46,7 @@ public class BinhLuanServiceImpl implements BinhLuanService {
 	public ResponseEntity<String> deleteBinhLuan(String maBL) {
 		// TODO Auto-generated method stub
 		try {
-			BinhLuan findBinhLuan = blRepository.findByMaBL(maBL);
+			BinhLuan findBinhLuan = blRepository.findByMaBl(maBL);
 			
 			if(findBinhLuan == null){
 				return new ResponseEntity<String>("Bình luận không tồn tại!", HttpStatus.BAD_REQUEST);
@@ -81,11 +80,11 @@ public class BinhLuanServiceImpl implements BinhLuanService {
 			
 			
 			String maBL = "BL" +  System.currentTimeMillis() % 10000000;
-			bl.setMabl(maBL);
+			bl.setMaBl(maBL);
 			
-			bl.setNoidung(binhluanModel.getNoidung());
-			bl.setSanpham(findSP);
-			bl.setKhachhang(findKH);
+			bl.setNoiDung(binhluanModel.getNoidung());
+			bl.setSanPham(findSP);
+			bl.setKhachHang(findKH);
 			
 			Date date = new Date();
 			bl.setTime(date);
@@ -101,7 +100,7 @@ public class BinhLuanServiceImpl implements BinhLuanService {
 	public ResponseEntity<BinhLuan> updateBinhLuan(String mabl, BinhLuanModel binhluanModel) {
 		// TODO Auto-generated method stub
 		try {
-			BinhLuan findBL = blRepository.findByMaBL(mabl);
+			BinhLuan findBL = blRepository.findByMaBl(mabl);
 			
 			if(findBL == null){
 				return new ResponseEntity<BinhLuan>(new BinhLuan(), HttpStatus.BAD_REQUEST);
@@ -110,18 +109,18 @@ public class BinhLuanServiceImpl implements BinhLuanService {
 			KhachHang findKH = khRepository.findByMakh(binhluanModel.getMakh());
 			
 			
-			if(!findKH.getMakh().equals(findBL.getKhachhang().getMakh())){
+			if(!findKH.getMakh().equals(findBL.getKhachHang().getMakh())){
 				return new ResponseEntity<BinhLuan>(new BinhLuan(), HttpStatus.BAD_REQUEST);
 			}
 			
 			SanPham findSP = spRepository.findByMasp(binhluanModel.getMasp());
 			
-			if(!findSP.getMasp().equals(findBL.getSanpham().getMasp())){
+			if(!findSP.getMaSp().equals(findBL.getSanPham().getMaSp())){
 				return new ResponseEntity<BinhLuan>(new BinhLuan(), HttpStatus.BAD_REQUEST);
 			}
 			
 			BinhLuan updateBL = findBL;
-			updateBL.setNoidung(binhluanModel.getNoidung());
+			updateBL.setNoiDung(binhluanModel.getNoidung());
 			
 			blRepository.save(updateBL);
 			return new ResponseEntity<BinhLuan>(updateBL, HttpStatus.OK);

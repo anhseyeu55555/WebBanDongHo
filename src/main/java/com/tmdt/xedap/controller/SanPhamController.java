@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tmdt.xedap.entity.NhaCungCap;
 import com.tmdt.xedap.entity.SanPham;
-import com.tmdt.xedap.model.SanPhamModel;
+import com.tmdt.xedap.dto.SanPhamModel;
 import com.tmdt.xedap.service.SanPhamService;
 
 @RestController

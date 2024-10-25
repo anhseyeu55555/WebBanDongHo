@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tmdt.xedap.model.Login;
-import com.tmdt.xedap.model.LoginRes;
+import com.tmdt.xedap.dto.Login;
+import com.tmdt.xedap.dto.LoginRes;
 import com.tmdt.xedap.service.TaiKhoanService;
 
 @RestController

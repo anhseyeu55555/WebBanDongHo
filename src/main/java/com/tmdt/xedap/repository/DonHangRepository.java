@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.tmdt.xedap.entity.DonHang;
-import com.tmdt.xedap.model.DonThuThang;
+import com.tmdt.xedap.dto.DonThuThang;
 
 public interface DonHangRepository extends JpaRepository<DonHang, String>{
 
@@ -30,7 +30,7 @@ public interface DonHangRepository extends JpaRepository<DonHang, String>{
 	DonHang getDetailDH(String madh);
 	
 	
-	@Query("SELECT new com.tmdt.xedap.model.DonThuThang(MONTH(dh.ngayDat), SUM(dh.tongTien)) " +
+	@Query("SELECT new com.tmdt.xedap.dto.DonThuThang(MONTH(dh.ngayDat), SUM(dh.tongTien)) " +
 	           "FROM DonHang dh " +
 	           "WHERE dh.trangThai = 3 AND YEAR(dh.ngayDat) = YEAR(CURDATE()) " +
 	           "GROUP BY MONTH(dh.ngayDat) ORDER BY dh.ngayDat")

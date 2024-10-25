@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 
 import com.tmdt.xedap.entity.KhachHang;
-import com.tmdt.xedap.model.KhachHangDangKy;
+import com.tmdt.xedap.dto.KhachHangDangKy;
 
 
 public interface KhachHangService {

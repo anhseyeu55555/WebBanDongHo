@@ -9,14 +9,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.tmdt.xedap.entity.CT_DonDatHang;
+import com.tmdt.xedap.entity.CT_DonNhapHang;
 import com.tmdt.xedap.entity.CT_DonDatHang_ID;
 import com.tmdt.xedap.entity.DonDatHang;
 import com.tmdt.xedap.entity.NhaCungCap;
 import com.tmdt.xedap.entity.NhanVien;
 import com.tmdt.xedap.entity.SanPham;
-import com.tmdt.xedap.model.CT_DonDatHangModel;
-import com.tmdt.xedap.model.DonDatHangModel;
+import com.tmdt.xedap.dto.CT_DonDatHangModel;
+import com.tmdt.xedap.dto.DonDatHangModel;
 import com.tmdt.xedap.repository.CT_DonDatHangRepository;
 import com.tmdt.xedap.repository.DonDatHangRepository;
 import com.tmdt.xedap.repository.NhaCungCapRepository;
@@ -84,7 +84,7 @@ public class DonDatHangServiceImpl implements DonDatHangService {
 		
 				
 				for(CT_DonDatHangModel ds: listDS) {
-					CT_DonDatHang ct_ddh = new CT_DonDatHang();
+					CT_DonNhapHang ct_ddh = new CT_DonNhapHang();
 					CT_DonDatHang_ID ct_ddh_id = new CT_DonDatHang_ID(ddh.getMddh(), ds.getMasp());
 					
 					
@@ -94,7 +94,7 @@ public class DonDatHangServiceImpl implements DonDatHangService {
 					ct_ddh.setDondathang(ddh);
 					
 					SanPham sp = new SanPham();
-					sp.setMasp(ds.getMasp());
+					sp.setMaSp(ds.getMasp());
 					ct_ddh.setSanpham(sp);
 					
 					ct_ddh.setGia(ds.getGia());

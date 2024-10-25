@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.tmdt.xedap.entity.DonHang;
 import com.tmdt.xedap.entity.HoaDon;
-import com.tmdt.xedap.model.HoaDonModel;
+import com.tmdt.xedap.dto.HoaDonModel;
 import com.tmdt.xedap.repository.DonHangRepository;
 import com.tmdt.xedap.repository.HoaDonRepository;
 import com.tmdt.xedap.service.HoaDonService;

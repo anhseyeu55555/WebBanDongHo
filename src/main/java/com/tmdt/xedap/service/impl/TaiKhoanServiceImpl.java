@@ -6,8 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.tmdt.xedap.entity.TaiKhoan;
-import com.tmdt.xedap.model.Login;
-import com.tmdt.xedap.model.LoginRes;
+import com.tmdt.xedap.dto.Login;
+import com.tmdt.xedap.dto.LoginRes;
 import com.tmdt.xedap.repository.TaiKhoanRepository;
 import com.tmdt.xedap.service.TaiKhoanService;
 
