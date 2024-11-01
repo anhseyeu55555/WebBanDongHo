@@ -26,16 +26,22 @@ public class KhachHang {
     @Id
     private String makh;
 
-    @Column(name = "hoten")
+    @Column(name = "tenkh")
     private String hoTen;
+
     @Column(name = "gioitinh")
     private String gioiTinh;
+
     private String sdt;
+
+    @Column(name = "dia_chi_vat_li")
     private String diaChi;
+
+    @Column(name = "dia_chi_email")
     private String email;
 
     @ManyToOne
-    @JoinColumn(name = "username")
+    @JoinColumn(name = "tentaikhoan")
     private TaiKhoan taikhoan;
 
     @JsonIgnore

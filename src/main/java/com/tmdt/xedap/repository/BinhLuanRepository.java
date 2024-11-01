@@ -13,5 +13,5 @@ public interface BinhLuanRepository extends JpaRepository<BinhLuan, String> {
 
     BinhLuan findByMaBl(String maBl);
 
-    List<BinhLuan> getAllBinhLuanOrderByTimeDesc();
+    List<BinhLuan> getAllBinhLuanOrderByNgayBinhLuanDesc();
 }

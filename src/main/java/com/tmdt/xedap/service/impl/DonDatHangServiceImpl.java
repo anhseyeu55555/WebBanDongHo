@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.tmdt.xedap.entity.CT_DonNhapHang;
 import com.tmdt.xedap.entity.CT_DonDatHang_ID;
-import com.tmdt.xedap.entity.DonDatHang;
+import com.tmdt.xedap.entity.DonNhapHang;
 import com.tmdt.xedap.entity.NhaCungCap;
 import com.tmdt.xedap.entity.NhanVien;
 import com.tmdt.xedap.entity.SanPham;
@@ -42,7 +42,7 @@ public class DonDatHangServiceImpl implements DonDatHangService {
 
 	
 	@Override
-	public List<DonDatHang> getListService() {
+	public List<DonNhapHang> getListService() {
 		// TODO Auto-generated method stub
 		return ddhRepository.findAll(Sort.by(Sort.Order.desc("ngaydat")));
 	}
@@ -63,13 +63,13 @@ public class DonDatHangServiceImpl implements DonDatHangService {
 				return new ResponseEntity<String>("Mã nhân viên không tồn tại!", HttpStatus.BAD_REQUEST);
 			}
 			
-			DonDatHang findDdh = ddhRepository.findByMaddh(ddhModel.getMaddh());
+			DonNhapHang findDdh = ddhRepository.findByMaddh(ddhModel.getMaddh());
 			
 			if(findDdh != null){
 				return new ResponseEntity<String>("Mã đơn hàng đặt đã tồn tại!", HttpStatus.BAD_REQUEST);
 			}
 			
-			DonDatHang ddh = new DonDatHang();
+			DonNhapHang ddh = new DonNhapHang();
 			
 			ddh.setMddh(ddhModel.getMaddh());
 			ddh.setNhacungcap(findNCC);

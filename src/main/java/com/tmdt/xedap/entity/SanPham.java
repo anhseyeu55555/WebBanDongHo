@@ -27,12 +27,14 @@ public class SanPham {
 
     private String tenSp;
     private String slug;
-    private int soLuong;
     private float donGia;
+
+    @JoinColumn(name = "mo_ta")
     private String chiTietSp;
-    private String image;
-    private String image2;
-    private String image3;
+
+    @JoinColumn(name = "hinh_anh")
+    private List<String> image;
+
     private int trangThai;
 
     @ManyToOne

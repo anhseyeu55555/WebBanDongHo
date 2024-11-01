@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tmdt.xedap.entity.CT_DonNhapHang;
-import com.tmdt.xedap.entity.DonDatHang;
+import com.tmdt.xedap.entity.DonNhapHang;
 import com.tmdt.xedap.dto.DonDatHangModel;
 import com.tmdt.xedap.service.CT_DonDatHangService;
 import com.tmdt.xedap.service.DonDatHangService;
@@ -31,7 +31,7 @@ public class DonDatHangController {
 	
 	
 	@GetMapping("/dondathang")
-	public List<DonDatHang> getAllDanhMuc(){
+	public List<DonNhapHang> getAllDanhMuc(){
 
 		return ddhService.getListService();
 	}

@@ -3,6 +3,7 @@ package com.tmdt.xedap.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -25,7 +26,11 @@ public class NhaCungCap {
     String mancc;
     String tenncc;
     String sdt;
+
+    @JoinColumn(name = "dia_chi_email")
     String email;
+
+    @JoinColumn(name = "dia_chi_vat_li")
     String diachi;
 
     @JsonIgnore
@@ -34,5 +39,5 @@ public class NhaCungCap {
 
     @JsonIgnore
     @OneToMany(mappedBy = "nhacungcap")
-    private Set<DonDatHang> dondathang;
+    private Set<DonNhapHang> dondathang;
 }

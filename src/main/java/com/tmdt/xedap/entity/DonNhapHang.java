@@ -23,7 +23,7 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DonDatHang {
+public class DonNhapHang {
     @Id
     @Column(name = "maddh", unique = true, nullable = false)
     private String mddh;

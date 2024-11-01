@@ -28,7 +28,7 @@ public class PhieuNhap {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "maddh")
-    private DonDatHang dondathang;
+    private DonNhapHang dondathang;
 
     @ManyToOne
     @JoinColumn(name = "manv")

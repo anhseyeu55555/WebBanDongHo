@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.tmdt.xedap.entity.CT_PhieuNhap;
 import com.tmdt.xedap.entity.CT_PhieuNhap_ID;
-import com.tmdt.xedap.entity.DonDatHang;
+import com.tmdt.xedap.entity.DonNhapHang;
 import com.tmdt.xedap.entity.NhanVien;
 import com.tmdt.xedap.entity.PhieuNhap;
 import com.tmdt.xedap.entity.SanPham;
@@ -50,7 +50,7 @@ public class PhieuNhapServiceImpl implements PhieuNhapService
 	public ResponseEntity<String> addPhieuNhap(PhieuNhapModel pnModel) {
 		// TODO Auto-generated method stub
 		try {
-			DonDatHang findDDH = ddhRepository.findByMaddh(pnModel.getMaddh());
+			DonNhapHang findDDH = ddhRepository.findByMaddh(pnModel.getMaddh());
 			
 			if(findDDH == null){
 				return new ResponseEntity<String>("Mã đơn đặt hàng không tồn tại!", HttpStatus.BAD_REQUEST);

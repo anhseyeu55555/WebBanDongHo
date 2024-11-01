@@ -27,7 +27,7 @@ public class CT_DonNhapHang implements Serializable {
     @ManyToOne
     @MapsId("maddh")
     @JoinColumn(name = "maddh")
-    DonDatHang dondathang;
+    DonNhapHang dondathang;
 
     @ManyToOne
     @MapsId("masp")

@@ -33,7 +33,7 @@ public class BinhLuanServiceImpl implements BinhLuanService {
 	@Override
 	public List<BinhLuan> getListService() {
 		// TODO Auto-generated method stub
-		return blRepository.getAllBinhLuanOrderByTimeDesc();
+		return blRepository.getAllBinhLuanOrderByNgayBinhLuanDesc();
 	}
 
 	@Override
@@ -87,7 +87,7 @@ public class BinhLuanServiceImpl implements BinhLuanService {
 			bl.setKhachHang(findKH);
 			
 			Date date = new Date();
-			bl.setTime(date);
+			bl.setNgayBinhLuan(date);
 			
 			blRepository.save(bl);
 			return new ResponseEntity<String>("Thêm bình luận thành công!", HttpStatus.OK);

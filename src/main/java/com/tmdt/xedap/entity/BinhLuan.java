@@ -25,7 +25,8 @@ public class BinhLuan {
     private String maBl;
     private String noiDung;
 
-    private Date time;
+    @JoinColumn(name = "ngaybinhluan")
+    private Date ngayBinhLuan;
 
     @ManyToOne
     @JoinColumn(name = "makh")

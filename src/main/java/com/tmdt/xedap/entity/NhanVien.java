@@ -23,11 +23,19 @@ import java.util.List;
 public class NhanVien {
     @Id
     String manv;
+
+    @JoinColumn(name = "tennv")
     String hoten;
+
     String gioitinh;
     String sdt;
+
+    @JoinColumn(name = "dia_chi_vat_li")
     String diachi;
+
+    @JoinColumn(name = "dia_chi_email")
     String email;
+
     float luong;
     @JsonIgnore
     @OneToMany(mappedBy = "nhanvien")
@@ -35,10 +43,12 @@ public class NhanVien {
     @JsonIgnore
     @OneToMany(mappedBy = "giaohang")
     List<DonHang> listDHGH;
+
     @ManyToOne
-    @JoinColumn(name = "username")
+    @JoinColumn(name = "ten_tai_khoan")
     private TaiKhoan taikhoan;
+
     @JsonIgnore
     @OneToMany(mappedBy = "nhanvien")
-    private List<DonDatHang> dondathang;
+    private List<DonNhapHang> dondathang;
 }

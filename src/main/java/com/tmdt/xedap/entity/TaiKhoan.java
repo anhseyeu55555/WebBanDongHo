@@ -23,19 +23,24 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TaiKhoan {
+    @Id
+    @JoinColumn(name = "ten_tai_khoan")
+    private String username;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "taikhoan")
+    @OneToMany(mappedBy = "ten_tai_khoan")
     List<NhanVien> listNV;
-    @Id
-    private String username;
+
     @JsonIgnore
+    @JoinColumn(name = "mat_khau")
     private String password;
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "maquyen")
+    @JoinColumn(name = "ma_quyen")
     private Quyen quyen;
+
     @JsonIgnore
-    @OneToMany(mappedBy = "taikhoan")
+    @OneToMany(mappedBy = "tentaikhoan")
     private List<KhachHang> listKH;
 }
