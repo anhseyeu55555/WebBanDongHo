@@ -27,9 +27,9 @@ public class TaiKhoan {
     @JoinColumn(name = "ten_tai_khoan")
     private String username;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "ten_tai_khoan")
-    List<NhanVien> listNV;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "ten_tai_khoan")
+//    List<NhanVien> listNV;
 
     @JsonIgnore
     @JoinColumn(name = "mat_khau")
@@ -40,7 +40,7 @@ public class TaiKhoan {
     @JoinColumn(name = "ma_quyen")
     private Quyen quyen;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "tentaikhoan")
-    private List<KhachHang> listKH;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "ten_tai_khoan")
+//    private List<KhachHang> listKH;
 }

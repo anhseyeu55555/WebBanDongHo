@@ -1,5 +1,6 @@
 package com.tmdt.xedap.service.impl;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,13 +38,11 @@ public class SanPhamServiceImpl implements SanPhamService{
 
 	@Override
 	public List<SanPham> getListService() {
-		// TODO Auto-generated method stub
 		return spRepository.findAll();
 	}
 
 	@Override
 	public ResponseEntity<SanPham> getDetailSPBySlug(String slug) {
-		// TODO Auto-generated method stub
 		try {
 			SanPham sp = spRepository.findBySlug(slug);
 			
@@ -59,7 +58,6 @@ public class SanPhamServiceImpl implements SanPhamService{
 	
 	@Override
 	public ResponseEntity<SanPham> getDetailSPByMaSp(String masp) {
-		// TODO Auto-generated method stub
 		try {
 			SanPham sp = spRepository.findByMasp(masp);
 			
@@ -75,7 +73,6 @@ public class SanPhamServiceImpl implements SanPhamService{
 
 	@Override
 	public ResponseEntity<String> addSanPham(SanPhamModel sanpham) {
-		// TODO Auto-generated method stub
 		try {
 			SanPham findSlugSP = spRepository.findBySlug(sanpham.getSlug());
 			
@@ -111,12 +108,11 @@ public class SanPhamServiceImpl implements SanPhamService{
 			dataAddSP.setMaSp(sanpham.getMasp());
 			dataAddSP.setTenSp(sanpham.getTensp());
 			dataAddSP.setSlug(sanpham.getSlug());
-			dataAddSP.setSoLuong(sanpham.getSoluong());
+			//todo change to soluong from kho
+//			dataAddSP.setSoLuong(sanpham.getSoluong());
 			dataAddSP.setDonGia(sanpham.getDongia());
 			dataAddSP.setChiTietSp(sanpham.getChitietSP());
-			dataAddSP.setImage(sanpham.getImage());
-			dataAddSP.setImage2(sanpham.getImage2());
-			dataAddSP.setImage3(sanpham.getImage3());
+			dataAddSP.setImage(Arrays.asList(sanpham.getImage(), sanpham.getImage2(), sanpham.getImage3()));
 			dataAddSP.setTrangThai(sanpham.getTrangthai());
 			dataAddSP.setThuongHieu(findTH);
 			dataAddSP.setDanhMuc(findDM);
@@ -134,7 +130,6 @@ public class SanPhamServiceImpl implements SanPhamService{
 
 	@Override
 	public ResponseEntity<String> deleteSanPham(String masp) {
-		// TODO Auto-generated method stub
 		try {
 			SanPham findSP = spRepository.findByMasp(masp);
 			
@@ -151,7 +146,6 @@ public class SanPhamServiceImpl implements SanPhamService{
 
 	@Override
 	public ResponseEntity<SanPham> updateSP(String masp, SanPham sanpham) {
-		// TODO Auto-generated method stub
 		try {
 			SanPham findSP = spRepository.findByMasp(masp);
 			
@@ -168,34 +162,26 @@ public class SanPhamServiceImpl implements SanPhamService{
 
 	@Override
 	public List<SanPham> getListSanPhamByDM(String madm) {
-		// TODO Auto-generated method stub
 		return spRepository.getSPByMaDM(madm);
 	}
 
 	@Override
 	public List<SanPham> getListSanPhamByTH(String math) {
-		// TODO Auto-generated method stub
 		return spRepository.getSPByMaTH(math);
 	}
 
 	@Override
 	public List<SanPham> getListSanPhamByNCC(String mancc) {
-		// TODO Auto-generated method stub
 		return spRepository.getSPByMaNcc(mancc);
 	}
 
 	@Override
 	public List<SanPham> getListSanPhamBySearch(String search) {
-		// TODO Auto-generated method stub
 		return spRepository.getSPBySearch(search);
 	}
 
 	@Override
 	public List<SanPham> getListSanPhamBestSeller() {
-		// TODO Auto-generated method stub
 		return spRepository.getListBestSeller();
 	}
-
-
-
 }

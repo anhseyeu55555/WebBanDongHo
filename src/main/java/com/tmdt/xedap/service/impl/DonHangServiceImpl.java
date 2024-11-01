@@ -138,13 +138,13 @@ public class DonHangServiceImpl implements DonHangService{
 					ctdh.setSanpham(findSP);
 					
 					SanPham updateSP = findSP;
-					int updateSoLuongSP = findSP.getSoLuong() - item.getSoluong();
-					
-					if(updateSoLuongSP < 0) {
-						return new ResponseEntity<String>("Sản phẩm " + findSP.getTenSp() + " không đủ số lượng bán, vui lòng kiểm tra lại!", HttpStatus.BAD_REQUEST);
-					}
-					
-					updateSP.setSoLuong(updateSoLuongSP);
+//					int updateSoLuongSP = findSP.getSoLuong() - item.getSoluong();
+//
+//					if(updateSoLuongSP < 0) {
+//						return new ResponseEntity<String>("Sản phẩm " + findSP.getTenSp() + " không đủ số lượng bán, vui lòng kiểm tra lại!", HttpStatus.BAD_REQUEST);
+//					}
+//
+//					updateSP.setSoLuong(updateSoLuongSP);
 					
 					spRepository.save(updateSP);
 					
@@ -200,9 +200,10 @@ public class DonHangServiceImpl implements DonHangService{
 				SanPham findSP = spRepository.findByMasp(item.getSanpham().getMaSp());
 				
 				SanPham updateSP = findSP;
-				int updateSoLuongSP = findSP.getSoLuong() + item.getSoluong();
-			
-				updateSP.setSoLuong(updateSoLuongSP);
+				//todo change soluong to kho
+//				int updateSoLuongSP = findSP.getSoLuong() + item.getSoluong();
+//
+//				updateSP.setSoLuong(updateSoLuongSP);
 				
 				spRepository.save(updateSP);
 			}

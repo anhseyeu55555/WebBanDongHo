@@ -8,10 +8,11 @@ import java.util.List;
 
 public interface BinhLuanRepository extends JpaRepository<BinhLuan, String> {
 
-    @Query(value = "FROM BinhLuan b WHERE SanPham.maSp=?1")
+    @Query(value = "FROM BinhLuan bl JOIN FETCH SanPham sp WHERE sp.maSp=: masp")
     List<BinhLuan> getListBinhLuanByMaSP(String maSp);
 
     BinhLuan findByMaBl(String maBl);
 
-    List<BinhLuan> getAllBinhLuanOrderByNgayBinhLuanDesc();
+    @Query(value = "FROM BinhLuan b ORDER BY b.ngayBinhLuan desc")
+    List<BinhLuan> getAllBinhLuan();
 }

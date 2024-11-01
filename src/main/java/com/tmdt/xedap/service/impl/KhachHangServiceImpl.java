@@ -27,13 +27,11 @@ public class KhachHangServiceImpl implements KhachHangService{
 
 	@Override
 	public List<KhachHang> getListService() {
-		// TODO Auto-generated method stub
 		return khRepository.findAll();
 	}
 
 	@Override
 	public ResponseEntity<KhachHang> getDetailKH(String makh) {
-		// TODO Auto-generated method stub
 		try {
 			KhachHang kh = khRepository.findByMakh(makh);
 			
@@ -49,7 +47,6 @@ public class KhachHangServiceImpl implements KhachHangService{
 
 	@Override
 	public ResponseEntity<String> registerUser(KhachHangDangKy khdk) {
-		// TODO Auto-generated method stub
 		try {
 			TaiKhoan findTK = tkRepository.findByUsername(khdk.getUsername());
 
@@ -95,7 +92,6 @@ public class KhachHangServiceImpl implements KhachHangService{
 
 	@Override
 	public ResponseEntity<String> deleteKH(String makh) {
-		// TODO Auto-generated method stub
 		try {
 			KhachHang findKH = khRepository.findByMakh(makh);
 			
@@ -113,7 +109,6 @@ public class KhachHangServiceImpl implements KhachHangService{
 
 	@Override
 	public ResponseEntity<KhachHang> updateUser(String makh, KhachHang kh) {
-		// TODO Auto-generated method stub
 		try {
 			KhachHang findKH = khRepository.findByMakh(makh);
 			
@@ -132,7 +127,6 @@ public class KhachHangServiceImpl implements KhachHangService{
 
 	@Override
 	public ResponseEntity<KhachHang> getDetailKHByUsername(String username) {
-		// TODO Auto-generated method stub
 		try {
 			KhachHang kh = khRepository.findByUsername(username);
 			

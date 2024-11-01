@@ -27,4 +27,9 @@ public class Quyen {
     @JsonIgnore
     @OneToMany(mappedBy = "quyen")
     private List<TaiKhoan> ListTk;
+
+    public Quyen(int maquyen) {
+        super();
+        this.maquyen = maquyen;
+    }
 }

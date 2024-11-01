@@ -41,7 +41,7 @@ public class KhachHang {
     private String email;
 
     @ManyToOne
-    @JoinColumn(name = "tentaikhoan")
+    @JoinColumn(name = "ten_tai_khoan")
     private TaiKhoan taikhoan;
 
     @JsonIgnore
