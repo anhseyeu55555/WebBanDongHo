@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "san_pham")
@@ -60,4 +61,8 @@ public class SanPham {
     @JsonIgnore
     @OneToMany(mappedBy = "sanPham")
     private List<BinhLuan> binhLuan;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "sanPham")
+    Set<CT_Kho> ctKho;
 }

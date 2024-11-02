@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,6 +38,7 @@ public class NhanVien {
     String email;
 
     float luong;
+
     @JsonIgnore
     @OneToMany(mappedBy = "nhanvien")
     List<DonHang> listDH;
@@ -51,4 +53,8 @@ public class NhanVien {
     @JsonIgnore
     @OneToMany(mappedBy = "nhanvien")
     private List<DonNhapHang> dondathang;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "nhanVien")
+    private ChiNhanh chiNhanh;
 }
