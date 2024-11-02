@@ -1,0 +1,5 @@
+INSERT INTO xedap.binh_luan (mabl, noidung, ngaybinhluan, makh, masp, ma_bl, ngay_binh_luan, noi_dung) VALUES ('BL3068872', 'kakakka', '2024-07-30 11:17:48', 'KH7735424', 'SP01', '', null, null);
+INSERT INTO xedap.binh_luan (mabl, noidung, ngaybinhluan, makh, masp, ma_bl, ngay_binh_luan, noi_dung) VALUES ('BL3132058', 'Chiếc xe quá tuyệt vời', '2024-07-30 11:18:52', 'KH7735424', 'SP01', '', null, null);
+INSERT INTO xedap.binh_luan (mabl, noidung, ngaybinhluan, makh, masp, ma_bl, ngay_binh_luan, noi_dung) VALUES ('BL3177625', 'không có từ nào để diễn tả được', '2024-07-30 11:19:37', 'KH7735424', 'SP01', '', null, null);
+INSERT INTO xedap.binh_luan (mabl, noidung, ngaybinhluan, makh, masp, ma_bl, ngay_binh_luan, noi_dung) VALUES ('BL7567344', 'ahahhahhaha', '2024-07-29 22:39:27', 'KH1493613', 'SP01', '', null, null);
+INSERT INTO xedap.binh_luan (mabl, noidung, ngaybinhluan, makh, masp, ma_bl, ngay_binh_luan, noi_dung) VALUES ('BL7576719', '999999999', '2024-07-29 22:39:36', 'KH1493613', 'SP01', '', null, null);

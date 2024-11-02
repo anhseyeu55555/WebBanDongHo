@@ -1,0 +1,9 @@
+INSERT INTO xedap.tai_khoan (ten_tai_khoan, mat_khau, ma_quyen, username, password) VALUES ('lenguochuy', '123456', 3, '', null);
+INSERT INTO xedap.tai_khoan (ten_tai_khoan, mat_khau, ma_quyen, username, password) VALUES ('manhbinh3012', '1973122', 2, '', null);
+INSERT INTO xedap.tai_khoan (ten_tai_khoan, mat_khau, ma_quyen, username, password) VALUES ('manhbinh55', '123456', 2, '', null);
+INSERT INTO xedap.tai_khoan (ten_tai_khoan, mat_khau, ma_quyen, username, password) VALUES ('manhbinh66', '123456', 2, '', null);
+INSERT INTO xedap.tai_khoan (ten_tai_khoan, mat_khau, ma_quyen, username, password) VALUES ('manhbinh77', '8439285', 2, '', null);
+INSERT INTO xedap.tai_khoan (ten_tai_khoan, mat_khau, ma_quyen, username, password) VALUES ('manhbinh99', '123456', 1, '', null);
+INSERT INTO xedap.tai_khoan (ten_tai_khoan, mat_khau, ma_quyen, username, password) VALUES ('vandung11', '123456', 3, '', null);
+INSERT INTO xedap.tai_khoan (ten_tai_khoan, mat_khau, ma_quyen, username, password) VALUES ('vandung99', '123456', 3, '', null);
+INSERT INTO xedap.tai_khoan (ten_tai_khoan, mat_khau, ma_quyen, username, password) VALUES ('vantan98', '123456', 3, '', null);
