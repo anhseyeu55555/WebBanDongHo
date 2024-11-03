@@ -1,6 +1,7 @@
 package com.tmdt.xedap.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
@@ -24,7 +25,7 @@ import java.util.List;
 @NoArgsConstructor
 public class TaiKhoan {
     @Id
-    @JoinColumn(name = "ten_tai_khoan")
+    @Column(name = "ten_tai_khoan")
     private String username;
 
     @JsonIgnore
@@ -32,7 +33,7 @@ public class TaiKhoan {
     List<NhanVien> listNV;
 
     @JsonIgnore
-    @JoinColumn(name = "mat_khau")
+    @Column(name = "mat_khau")
     private String password;
 
     @JsonIgnore

@@ -1,6 +1,7 @@
 package com.tmdt.xedap.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -25,16 +26,16 @@ public class NhanVien {
     @Id
     String manv;
 
-    @JoinColumn(name = "tennv")
+    @Column(name = "tennv")
     String hoten;
 
     String gioitinh;
     String sdt;
 
-    @JoinColumn(name = "dia_chi_vat_li")
+    @Column(name = "dia_chi_vat_li")
     String diachi;
 
-    @JoinColumn(name = "dia_chi_email")
+    @Column(name = "dia_chi_email")
     String email;
 
     float luong;

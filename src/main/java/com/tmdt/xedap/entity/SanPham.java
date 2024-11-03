@@ -1,6 +1,7 @@
 package com.tmdt.xedap.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -30,10 +31,10 @@ public class SanPham {
     private String slug;
     private float donGia;
 
-    @JoinColumn(name = "mo_ta")
+    @Column(name = "mo_ta")
     private String chiTietSp;
 
-    @JoinColumn(name = "hinh_anh")
+    @Column(name = "hinh_anh")
     private List<String> image;
 
     private int trangThai;

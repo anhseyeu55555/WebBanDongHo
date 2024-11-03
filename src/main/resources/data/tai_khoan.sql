@@ -1,0 +1,9 @@
+INSERT INTO xedap.tai_khoan (ten_tai_khoan, mat_khau, ma_quyen) VALUES ('lenguochuy', '123456', 3);
+INSERT INTO xedap.tai_khoan (ten_tai_khoan, mat_khau, ma_quyen) VALUES ('manhbinh3012', '1973122', 2);
+INSERT INTO xedap.tai_khoan (ten_tai_khoan, mat_khau, ma_quyen) VALUES ('manhbinh55', '123456', 2);
+INSERT INTO xedap.tai_khoan (ten_tai_khoan, mat_khau, ma_quyen) VALUES ('manhbinh66', '123456', 2);
+INSERT INTO xedap.tai_khoan (ten_tai_khoan, mat_khau, ma_quyen) VALUES ('manhbinh77', '8439285', 2);
+INSERT INTO xedap.tai_khoan (ten_tai_khoan, mat_khau, ma_quyen) VALUES ('manhbinh99', '123456', 1);
+INSERT INTO xedap.tai_khoan (ten_tai_khoan, mat_khau, ma_quyen) VALUES ('vandung11', '123456', 3);
+INSERT INTO xedap.tai_khoan (ten_tai_khoan, mat_khau, ma_quyen) VALUES ('vandung99', '123456', 3);
+INSERT INTO xedap.tai_khoan (ten_tai_khoan, mat_khau, ma_quyen) VALUES ('vantan98', '123456', 3);

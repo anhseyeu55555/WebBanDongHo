@@ -2,6 +2,7 @@ package com.tmdt.xedap.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -26,23 +27,23 @@ public class DonHang {
     @Id
     private String madh;
 
-    @JoinColumn(name = "hinh_thuc_thanh_toan")
+    @Column(name = "hinh_thuc_thanh_toan")
     private int hinhThucThanhToan;
 
-    @JoinColumn(name = "ngay_dat")
+    @Column(name = "ngay_dat")
     private LocalDate ngayDat;
 
-    @JoinColumn(name = "tong_tien")
+    @Column(name = "tong_tien")
     private float tongTien;
 
     //todo change to enum
-    @JoinColumn(name = "trang_thai")
+    @Column(name = "trang_thai")
     private int trangThai;
 
-    @JoinColumn(name = "ho_ten")
+    @Column(name = "ho_ten")
     private String hoTen;
 
-    @JoinColumn(name = "dia_chi")
+    @Column(name = "dia_chi")
     private String diaChi;
 
     private String sdt;

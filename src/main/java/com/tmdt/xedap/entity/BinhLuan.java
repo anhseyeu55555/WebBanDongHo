@@ -1,5 +1,6 @@
 package com.tmdt.xedap.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -25,7 +26,7 @@ public class BinhLuan {
     private String maBl;
     private String noiDung;
 
-    @JoinColumn(name = "ngaybinhluan")
+    @Column(name = "ngaybinhluan")
     private Date ngayBinhLuan;
 
     @ManyToOne

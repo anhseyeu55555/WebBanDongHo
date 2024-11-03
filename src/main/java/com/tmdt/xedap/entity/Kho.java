@@ -1,6 +1,7 @@
 package com.tmdt.xedap.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -24,10 +25,10 @@ public class Kho {
     @Id
     private String maKho;
 
-    @JoinColumn(name = "ten_kho")
+    @Column(name = "ten_kho")
     private String tenKho;
 
-    @JoinColumn(name = "dia_chi_kho")
+    @Column(name = "dia_chi_kho")
     private String diaChi;
 
     @OneToOne
