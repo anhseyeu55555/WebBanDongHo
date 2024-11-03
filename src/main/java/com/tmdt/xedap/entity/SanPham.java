@@ -35,7 +35,7 @@ public class SanPham {
     private String chiTietSp;
 
     @Column(name = "hinh_anh")
-    private List<String> image;
+    private String image;
 
     private int trangThai;
 
