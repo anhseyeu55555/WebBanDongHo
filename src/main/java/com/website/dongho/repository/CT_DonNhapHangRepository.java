@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface CT_DonDatHangRepository extends JpaRepository<CT_DonNhapHang, CT_DonNhapHang_ID>{
+public interface CT_DonNhapHangRepository extends JpaRepository<CT_DonNhapHang, CT_DonNhapHang_ID>{
 	@Query(value="SELECT * FROM donghodb.ct_don_nhap_hang WHERE madnh=?1", nativeQuery = true)
 	List<CT_DonNhapHang> findBymaddh(String maddh);
 }

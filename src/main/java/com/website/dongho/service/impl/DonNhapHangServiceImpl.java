@@ -8,7 +8,7 @@ import com.website.dongho.entity.DonNhapHang;
 import com.website.dongho.entity.NhaCungCap;
 import com.website.dongho.entity.NhanVien;
 import com.website.dongho.entity.SanPham;
-import com.website.dongho.repository.CT_DonDatHangRepository;
+import com.website.dongho.repository.CT_DonNhapHangRepository;
 import com.website.dongho.repository.DonNhapHangRepository;
 import com.website.dongho.repository.NhaCungCapRepository;
 import com.website.dongho.repository.NhanVienRepository;
@@ -28,7 +28,7 @@ import java.util.List;
 public class DonNhapHangServiceImpl implements DonNhapHangService {
     private final DonNhapHangRepository ddhRepository;
 
-    private final CT_DonDatHangRepository ct_dhhRepository;
+    private final CT_DonNhapHangRepository ct_dhhRepository;
 
     private final NhanVienRepository nvRepository;
 
