@@ -13,6 +13,6 @@ public interface DonDatHangRepository extends JpaRepository<DonNhapHang, String>
 	DonNhapHang findByNV(String manv);
 	
 
-	@Query(value="FROM DonNhapHang WHERE mddh=?1")
+	@Query(value="FROM DonNhapHang WHERE mddh=:maddh")
 	DonNhapHang findByMaddh(String maddh);
 }

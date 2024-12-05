@@ -112,7 +112,7 @@ public class SanPhamServiceImpl implements SanPhamService{
 //			dataAddSP.setSoLuong(sanpham.getSoluong());
 			dataAddSP.setDonGia(sanpham.getDongia());
 			dataAddSP.setChiTietSp(sanpham.getChitietSP());
-			dataAddSP.setImage(Arrays.asList(sanpham.getImage(), sanpham.getImage2(), sanpham.getImage3()));
+			dataAddSP.setImage(String.valueOf(Arrays.asList(sanpham.getImage(), sanpham.getImage2(), sanpham.getImage3())));
 			dataAddSP.setTrangThai(sanpham.getTrangthai());
 			dataAddSP.setThuongHieu(findTH);
 			dataAddSP.setDanhMuc(findDM);

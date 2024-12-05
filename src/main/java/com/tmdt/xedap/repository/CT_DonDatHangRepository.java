@@ -10,6 +10,6 @@ import com.tmdt.xedap.entity.CT_DonDatHang_ID;
 
 public interface CT_DonDatHangRepository extends JpaRepository<CT_DonNhapHang, CT_DonDatHang_ID>{
 
-	@Query(value="SELECT * FROM ct_don_dat_hang WHERE maddh=?1", nativeQuery = true)
+	@Query(value="SELECT * FROM xedap.ct_don_nhap_hang WHERE maddh=?1", nativeQuery = true)
 	List<CT_DonNhapHang> findBymaddh(String maddh);
 }
