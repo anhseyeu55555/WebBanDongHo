@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DonThuThang {
+public class DonThuThangDto {
     private int thang;
     private double tongDoanhThu;
 }

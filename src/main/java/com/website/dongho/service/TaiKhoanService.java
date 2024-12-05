@@ -6,9 +6,9 @@ import org.springframework.http.ResponseEntity;
 
 public interface TaiKhoanService {
 
-	ResponseEntity<LoginRes> login(Login dataLogin);
-	
-	ResponseEntity<String> changePassword(Login dataLogin);
-	
-	ResponseEntity<LoginRes> getDetailTaiKhoan(String username);
+    ResponseEntity<LoginRes> login(Login dataLogin);
+
+    ResponseEntity<String> changePassword(Login dataLogin);
+
+    ResponseEntity<LoginRes> getDetailTaiKhoan(String username);
 }

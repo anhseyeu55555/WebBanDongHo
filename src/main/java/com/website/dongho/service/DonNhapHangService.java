@@ -7,9 +7,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface DonNhapHangService {
+    List<DonNhapHang> getListService();
 
-	
-	List<DonNhapHang> getListService();
-	
-	ResponseEntity<String> addDonDathang(DonNhapHangDto ddhModel);
+    ResponseEntity<String> addDonDathang(DonNhapHangDto ddhModel);
 }

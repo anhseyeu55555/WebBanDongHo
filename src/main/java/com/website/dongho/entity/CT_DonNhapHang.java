@@ -33,8 +33,8 @@ public class CT_DonNhapHang implements Serializable {
 
     @JsonIgnore
     @ManyToOne
-    @MapsId("maddh")
-    @JoinColumn(name = "maddh")
+    @MapsId("madnh")
+    @JoinColumn(name = "madnh")
     DonNhapHang dondathang;
 
     @ManyToOne

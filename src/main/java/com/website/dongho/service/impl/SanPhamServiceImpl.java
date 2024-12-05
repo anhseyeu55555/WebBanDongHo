@@ -10,7 +10,7 @@ import com.website.dongho.repository.NhaCungCapRepository;
 import com.website.dongho.repository.SanPhamRepository;
 import com.website.dongho.repository.ThuongHieuRepository;
 import com.website.dongho.service.SanPhamService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -18,177 +18,157 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class SanPhamServiceImpl implements SanPhamService{
-	
-	@Autowired
-	private SanPhamRepository spRepository;
-	
-	@Autowired
-	private DanhMucRepository dmRepository;
-	
-	@Autowired 
-	private ThuongHieuRepository thRepository;
-	
-	@Autowired
-	private NhaCungCapRepository nccRepository;
-	
-	
+@RequiredArgsConstructor
+public class SanPhamServiceImpl implements SanPhamService {
+    private final SanPhamRepository spRepository;
 
-	@Override
-	public List<SanPham> getListService() {
-		return spRepository.findAll();
-	}
+    private final DanhMucRepository dmRepository;
 
-	@Override
-	public ResponseEntity<SanPham> getDetailSPBySlug(String slug) {
-		try {
-			SanPham sp = spRepository.findBySlug(slug);
-			
-			if(sp == null) {
-				return new ResponseEntity<SanPham>(new SanPham(), HttpStatus.BAD_REQUEST);
-			}
-			
-			return new ResponseEntity<SanPham>(sp, HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<SanPham>(new SanPham(), HttpStatus.BAD_REQUEST);
-		}
-	}
-	
-	@Override
-	public ResponseEntity<SanPham> getDetailSPByMaSp(String masp) {
-		try {
-			SanPham sp = spRepository.findByMasp(masp);
-			
-			if(sp == null) {
-				return new ResponseEntity<SanPham>(new SanPham(), HttpStatus.BAD_REQUEST);
-			}
-			
-			return new ResponseEntity<SanPham>(sp, HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<SanPham>(new SanPham(), HttpStatus.BAD_REQUEST);
-		}
-	}
+    private final ThuongHieuRepository thRepository;
 
-	@Override
-	public ResponseEntity<String> addSanPham(SanPhamDto sanpham) {
-		try {
-			SanPham findSlugSP = spRepository.findBySlug(sanpham.getSlug());
-			
-			if(findSlugSP != null){
-				return new ResponseEntity<String>("Tên sản phẩm đã tồn tại!", HttpStatus.BAD_REQUEST);
-			}
-			
-			SanPham findMaSP = spRepository.findByMasp(sanpham.getMasp());
-			
-			if(findMaSP != null){
-				return new ResponseEntity<String>("Mã sản phẩm đã tồn tại!", HttpStatus.BAD_REQUEST);
-			}
-			
-			DanhMuc findDM = dmRepository.findByMadm(sanpham.getMadm());
-			
-			if(findDM == null) {
-				return new ResponseEntity<String>("Mã danh mục không tồn tại!", HttpStatus.BAD_REQUEST);
-			}
-			
-			ThuongHieu findTH = thRepository.findByMath(sanpham.getMath());
+    private final NhaCungCapRepository nccRepository;
 
-			if(findTH == null) {
-				return new ResponseEntity<String>("Mã thương hiệu tồn tại!", HttpStatus.BAD_REQUEST);
-			}
-			
-			NhaCungCap findNCC = nccRepository.findByMancc(sanpham.getMancc());
-			
-			if(findNCC == null) {
-				return new ResponseEntity<String>("Mã nhà cung cấp tồn tại!", HttpStatus.BAD_REQUEST);
-			}
-			
-			SanPham dataAddSP = new SanPham();
-			dataAddSP.setMasp(sanpham.getMasp());
-			dataAddSP.setTensp(sanpham.getTensp());
-			dataAddSP.setSlug(sanpham.getSlug());
-			dataAddSP.setSoluong(sanpham.getSoluong());
-			dataAddSP.setDongia(sanpham.getDongia());
-			dataAddSP.setChitietSP(sanpham.getChitietSP());
-			dataAddSP.setImage(sanpham.getImage());
-			dataAddSP.setImage2(sanpham.getImage2());
-			dataAddSP.setImage3(sanpham.getImage3());
-			dataAddSP.setTrangthai(sanpham.getTrangthai());
-			dataAddSP.setThuonghieu(findTH);
-			dataAddSP.setDanhmuc(findDM);
-			dataAddSP.setNhacungcap(findNCC);
-			
-			
-			spRepository.save(dataAddSP);
-			return new ResponseEntity<String>("Thêm sản phẩm thành công!", HttpStatus.OK);
-		} catch (Exception e) {
-			System.out.println(e);
-			
-			return new ResponseEntity<String>("Đã xảy ra lỗi, thêm sản phẩm thất bại!", HttpStatus.BAD_REQUEST);
-		}
-	}
+    @Override
+    public List<SanPham> getListService() {
+        return spRepository.findAll();
+    }
 
-	@Override
-	public ResponseEntity<String> deleteSanPham(String masp) {
-		try {
-			SanPham findSP = spRepository.findByMasp(masp);
-			
-			if(findSP == null){
-				return new ResponseEntity<String>("Mã sản phẩm không tồn tại!", HttpStatus.BAD_REQUEST);
-			}
-			
-			spRepository.deleteById(masp);
-			return new ResponseEntity<String>("Xoá sản phẩm thành công!", HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<String>("Đã xảy ra lỗi, xoá sản phẩm thất bại!", HttpStatus.BAD_REQUEST);
-		}
-	}
+    @Override
+    public ResponseEntity<SanPham> getDetailSPBySlug(String slug) {
+        try {
+            SanPham sp = spRepository.findBySlug(slug);
+            if (sp == null) {
+                return new ResponseEntity<SanPham>(new SanPham(), HttpStatus.BAD_REQUEST);
+            }
 
-	@Override
-	public ResponseEntity<SanPham> updateSP(String masp, SanPham sanpham) {
-		try {
-			SanPham findSP = spRepository.findByMasp(masp);
-			
-			if(findSP  == null){
-				return new ResponseEntity<SanPham>(new SanPham(), HttpStatus.BAD_REQUEST);
-			}
-			
-			spRepository.save(sanpham);
-			return new ResponseEntity<SanPham>(sanpham, HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<SanPham>(new SanPham(), HttpStatus.BAD_REQUEST);
-		}
-	}
+            return new ResponseEntity<SanPham>(sp, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<SanPham>(new SanPham(), HttpStatus.BAD_REQUEST);
+        }
+    }
 
-	@Override
-	public List<SanPham> getListSanPhamByDM(String madm) {
-		return spRepository.getSPByMaDM(madm);
-	}
+    @Override
+    public ResponseEntity<SanPham> getDetailSPByMaSp(String masp) {
+        try {
+            SanPham sp = spRepository.findByMasp(masp);
+            if (sp == null) {
+                return new ResponseEntity<SanPham>(new SanPham(), HttpStatus.BAD_REQUEST);
+            }
 
-	@Override
-	public List<SanPham> getListSanPhamByTH(String math) {
-		return spRepository.getSPByMaTH(math);
-	}
+            return new ResponseEntity<SanPham>(sp, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<SanPham>(new SanPham(), HttpStatus.BAD_REQUEST);
+        }
+    }
 
-	@Override
-	public List<SanPham> getListSanPhamByNCC(String mancc) {
-		return spRepository.getSPByMaNcc(mancc);
-	}
+    @Override
+    public ResponseEntity<String> addSanPham(SanPhamDto sanpham) {
+        try {
+            SanPham findSlugSP = spRepository.findBySlug(sanpham.getSlug());
+            if (findSlugSP != null) {
+                return new ResponseEntity<String>("Tên sản phẩm đã tồn tại!", HttpStatus.BAD_REQUEST);
+            }
 
-	@Override
-	public List<SanPham> getListSanPhamByNew() {
-		return spRepository.getSPByNew();
-	}
+            SanPham findMaSP = spRepository.findByMasp(sanpham.getMasp());
+            if (findMaSP != null) {
+                return new ResponseEntity<String>("Mã sản phẩm đã tồn tại!", HttpStatus.BAD_REQUEST);
+            }
 
-	@Override
-	public List<SanPham> getListSanPhamBySearch(String search) {
-		return spRepository.getSPBySearch(search);
-	}
+            DanhMuc findDM = dmRepository.findByMadm(sanpham.getMadm());
+            if (findDM == null) {
+                return new ResponseEntity<String>("Mã danh mục không tồn tại!", HttpStatus.BAD_REQUEST);
+            }
 
-	@Override
-	public List<SanPham> getListSanPhamBestSeller() {
-		return spRepository.getListBestSeller();
-	}
+            ThuongHieu findTH = thRepository.findByMath(sanpham.getMath());
+            if (findTH == null) {
+                return new ResponseEntity<String>("Mã thương hiệu tồn tại!", HttpStatus.BAD_REQUEST);
+            }
 
+            NhaCungCap findNCC = nccRepository.findByMancc(sanpham.getMancc());
+            if (findNCC == null) {
+                return new ResponseEntity<String>("Mã nhà cung cấp tồn tại!", HttpStatus.BAD_REQUEST);
+            }
 
+            SanPham dataAddSP = new SanPham();
+            dataAddSP.setMasp(sanpham.getMasp());
+            dataAddSP.setTensp(sanpham.getTensp());
+            dataAddSP.setSlug(sanpham.getSlug());
+            dataAddSP.setSoluong(sanpham.getSoluong());
+            dataAddSP.setDongia(sanpham.getDongia());
+            dataAddSP.setChitietSP(sanpham.getChitietSP());
+            dataAddSP.setImage(sanpham.getImage());
+            dataAddSP.setImage2(sanpham.getImage2());
+            dataAddSP.setImage3(sanpham.getImage3());
+            dataAddSP.setTrangthai(sanpham.getTrangthai());
+            dataAddSP.setThuonghieu(findTH);
+            dataAddSP.setDanhmuc(findDM);
+            dataAddSP.setNhacungcap(findNCC);
 
+            spRepository.save(dataAddSP);
+            return new ResponseEntity<String>("Thêm sản phẩm thành công!", HttpStatus.OK);
+        } catch (Exception e) {
+            System.out.println(e);
+            return new ResponseEntity<String>("Đã xảy ra lỗi, thêm sản phẩm thất bại!", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @Override
+    public ResponseEntity<String> deleteSanPham(String masp) {
+        try {
+            SanPham findSP = spRepository.findByMasp(masp);
+            if (findSP == null) {
+                return new ResponseEntity<String>("Mã sản phẩm không tồn tại!", HttpStatus.BAD_REQUEST);
+            }
+
+            spRepository.deleteById(masp);
+            return new ResponseEntity<String>("Xoá sản phẩm thành công!", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<String>("Đã xảy ra lỗi, xoá sản phẩm thất bại!", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @Override
+    public ResponseEntity<SanPham> updateSP(String masp, SanPham sanpham) {
+        try {
+            SanPham findSP = spRepository.findByMasp(masp);
+            if (findSP == null) {
+                return new ResponseEntity<SanPham>(new SanPham(), HttpStatus.BAD_REQUEST);
+            }
+
+            spRepository.save(sanpham);
+            return new ResponseEntity<SanPham>(sanpham, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<SanPham>(new SanPham(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @Override
+    public List<SanPham> getListSanPhamByDM(String madm) {
+        return spRepository.getSPByMaDM(madm);
+    }
+
+    @Override
+    public List<SanPham> getListSanPhamByTH(String math) {
+        return spRepository.getSPByMaTH(math);
+    }
+
+    @Override
+    public List<SanPham> getListSanPhamByNCC(String mancc) {
+        return spRepository.getSPByMaNcc(mancc);
+    }
+
+    @Override
+    public List<SanPham> getListSanPhamByNew() {
+        return spRepository.getSPByNew();
+    }
+
+    @Override
+    public List<SanPham> getListSanPhamBySearch(String search) {
+        return spRepository.getSPBySearch(search);
+    }
+
+    @Override
+    public List<SanPham> getListSanPhamBestSeller() {
+        return spRepository.getListBestSeller();
+    }
 }

@@ -7,17 +7,14 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface BinhLuanService {
+    List<BinhLuan> getListService();
 
-	
-	List<BinhLuan> getListService();
-	
-	List<BinhLuan> getListBinhLuanByMaSP(String masp);
-	
-	ResponseEntity<String> deleteBinhLuan(String maBL);
-	
-	ResponseEntity<String> addBinhLuan(BinhLuanDto binhluanDto);
-	
-	ResponseEntity<BinhLuan> updateBinhLuan(String mabl, BinhLuanDto binhluanDto);
-	
+    List<BinhLuan> getListBinhLuanByMaSP(String masp);
+
+    ResponseEntity<String> deleteBinhLuan(String maBL);
+
+    ResponseEntity<String> addBinhLuan(BinhLuanDto binhluanDto);
+
+    ResponseEntity<BinhLuan> updateBinhLuan(String mabl, BinhLuanDto binhluanDto);
 
 }

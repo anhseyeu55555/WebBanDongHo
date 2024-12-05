@@ -7,8 +7,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface HoaDonService {
+    List<HoaDon> getListService();
 
-	List<HoaDon> getListService();
-	
-	ResponseEntity<String> addHoaDon(HoaDonDto hdModel);
+    ResponseEntity<String> addHoaDon(HoaDonDto hdModel);
 }

@@ -7,14 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface BinhLuanRepository extends JpaRepository<BinhLuan, String> {
+    @Query(value = "FROM BinhLuan bl WHERE bl.sanpham.masp = :masp")
+    List<BinhLuan> getListBinhLuanByMaSP(String masp);
 
-	
-	@Query(value="SELECT * FROM binh_luan WHERE masp=?1", nativeQuery = true)
-	List<BinhLuan> getListBinhLuanByMaSP(String masp);
-	
-	@Query(value="SELECT * FROM binh_luan WHERE mabl=?1", nativeQuery = true)
-	BinhLuan findByMaBL(String mabl);
-	
-	@Query(value="SELECT * FROM binh_luan ORDER BY time DESC", nativeQuery = true)
-	List<BinhLuan> getListBinhLuanSort();
+    @Query(value = "FROM BinhLuan bl WHERE bl.mabl = :mabl")
+    BinhLuan findByMaBL(String mabl);
+
+    @Query(value = "FROM BinhLuan bl ORDER BY bl.time DESC")
+    List<BinhLuan> getListBinhLuanSort();
 }

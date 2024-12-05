@@ -8,18 +8,16 @@ import java.util.List;
 
 
 public interface KhachHangService {
-	
-	List<KhachHang> getListService();
-	
-	ResponseEntity<KhachHang> getDetailKH(String makh);
-	
-	ResponseEntity<KhachHang> getDetailKHByUsername(String username);
+    List<KhachHang> getListService();
 
-	
-	ResponseEntity<String> registerUser(KhachHangDangKyDto khdk);
-	
-	ResponseEntity<String> deleteKH(String makh);
-	
-	ResponseEntity<KhachHang> updateUser(String makh, KhachHang kh);
+    ResponseEntity<KhachHang> getDetailKH(String makh);
+
+    ResponseEntity<KhachHang> getDetailKHByUsername(String username);
+
+    ResponseEntity<String> registerUser(KhachHangDangKyDto khdk);
+
+    ResponseEntity<String> deleteKH(String makh);
+
+    ResponseEntity<KhachHang> updateUser(String makh, KhachHang kh);
 
 }

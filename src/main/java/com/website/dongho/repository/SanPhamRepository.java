@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface SanPhamRepository extends JpaRepository<SanPham, String>{
-	
 	@Query(value="SELECT * FROM san_pham WHERE masp=?1", nativeQuery = true)
 	SanPham findByMasp(String masp);
 	

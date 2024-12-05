@@ -5,8 +5,7 @@ import com.website.dongho.dto.MailDto;
 import org.springframework.http.ResponseEntity;
 
 public interface MailService {
+    void sendMail(String mail, MailDto mailmodel);
 
-	 void sendMail(String mail, MailDto mailmodel);
-	 
-	 ResponseEntity<String> forgotPassword(ForgotPasswordDto forgotPasswordDto);
+    ResponseEntity<String> forgotPassword(ForgotPasswordDto forgotPasswordDto);
 }

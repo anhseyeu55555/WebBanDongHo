@@ -7,8 +7,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface PhieuNhapService {
-	
-	List<PhieuNhap> getListService();
-	
-	ResponseEntity<String> addPhieuNhap(PhieuNhapDto pnModel);
+    List<PhieuNhap> getListService();
+
+    ResponseEntity<String> addPhieuNhap(PhieuNhapDto pnModel);
 }
