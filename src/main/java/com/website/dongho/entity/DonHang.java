@@ -2,6 +2,7 @@ package com.website.dongho.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -28,7 +29,10 @@ public class DonHang {
     private String madh;
 
     private int hinhThucThanhToan;
+
+    @Column(name = "ngay_dat")
     private LocalDate ngayDat;
+
     private float tongTien;
     private int trangThai;
     private String hoTen;
@@ -44,7 +48,6 @@ public class DonHang {
     @ManyToOne
     @JoinColumn(name = "manvgh")
     private NhanVien giaohang;
-
 
     @ManyToOne
     @JoinColumn(name = "makh")

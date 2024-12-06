@@ -1,5 +1,6 @@
 package com.website.dongho.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -25,6 +26,7 @@ public class BinhLuan {
     private String mabl;
     private String noidung;
 
+    @Column(name = "ngaybinhluan")
     private Date time;
 
     @ManyToOne
