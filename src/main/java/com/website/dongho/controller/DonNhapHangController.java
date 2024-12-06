@@ -21,7 +21,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/donnhaphang")
+@RequestMapping("/dondathang")
 @RequiredArgsConstructor
 public class DonNhapHangController {
     private final DonNhapHangService donNhapHangService;
