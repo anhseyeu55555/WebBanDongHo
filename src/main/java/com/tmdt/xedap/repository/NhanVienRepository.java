@@ -9,14 +9,14 @@ import com.tmdt.xedap.entity.NhanVien;
 
 public interface NhanVienRepository extends JpaRepository<NhanVien, String> {
 
-	@Query(value="SELECT * FROM nhan_vien WHERE manv=?1", nativeQuery = true)
+	@Query(value="FROM NhanVien nv WHERE nv.manv=:manv")
 	NhanVien findByManv(String manv);
 	
-	@Query(value="select * from nhan_vien where username = ?1", nativeQuery = true)
+	@Query(value="from NhanVien nv where nv.taikhoan=:username")
 	NhanVien findByUsername(String username);
 	
 
-	@Query(value="select * from nhan_vien where email = ?1", nativeQuery = true)
+	@Query(value="from NhanVien nv where nv.email=:email")
 	NhanVien findByEmail(String email);
 	
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 
 import com.tmdt.xedap.entity.NhanVien;
-import com.tmdt.xedap.model.NhanVienDangKy;
+import com.tmdt.xedap.dto.NhanVienDangKy;
 
 
 public interface NhanVienService {

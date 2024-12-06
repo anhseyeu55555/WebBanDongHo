@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tmdt.xedap.entity.PhieuNhap;
-import com.tmdt.xedap.model.PhieuNhapModel;
+import com.tmdt.xedap.dto.PhieuNhapModel;
 import com.tmdt.xedap.service.PhieuNhapService;
 
 @RestController

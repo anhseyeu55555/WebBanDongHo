@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tmdt.xedap.entity.HoaDon;
-import com.tmdt.xedap.model.HoaDonModel;
+import com.tmdt.xedap.dto.HoaDonModel;
 import com.tmdt.xedap.service.HoaDonService;
 
 

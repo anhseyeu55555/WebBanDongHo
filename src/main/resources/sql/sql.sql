@@ -1,0 +1,3 @@
+SHOW FULL COLUMNS FROM xedap.san_pham;
+
+SHOW FULL COLUMNS FROM xedap.kho;

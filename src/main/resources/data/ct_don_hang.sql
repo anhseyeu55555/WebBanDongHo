@@ -1,0 +1,11 @@
+INSERT INTO xedap.ct_don_hang (madh, masp, gia, soluong) VALUES ('DH194688', 'SP03', 30, 27);
+INSERT INTO xedap.ct_don_hang (madh, masp, gia, soluong) VALUES ('DH4739103', 'SP02', 50, 7);
+INSERT INTO xedap.ct_don_hang (madh, masp, gia, soluong) VALUES ('DH4916938', 'SP02', 50, 9);
+INSERT INTO xedap.ct_don_hang (madh, masp, gia, soluong) VALUES ('DH5225622', 'SP03', 30, 1);
+INSERT INTO xedap.ct_don_hang (madh, masp, gia, soluong) VALUES ('DH6725800', 'SP01', 20, 4);
+INSERT INTO xedap.ct_don_hang (madh, masp, gia, soluong) VALUES ('DH7889284', 'SP03', 30, 2);
+INSERT INTO xedap.ct_don_hang (madh, masp, gia, soluong) VALUES ('DH7894580', 'SP01', 20, 1);
+INSERT INTO xedap.ct_don_hang (madh, masp, gia, soluong) VALUES ('DH7894580', 'SP04', 100, 1);
+INSERT INTO xedap.ct_don_hang (madh, masp, gia, soluong) VALUES ('DH8358176', 'SP02', 50, 27);
+INSERT INTO xedap.ct_don_hang (madh, masp, gia, soluong) VALUES ('DH8364360', 'SP04', 100, 5);
+INSERT INTO xedap.ct_don_hang (madh, masp, gia, soluong) VALUES ('DH8366530', 'SP03', 30, 3);

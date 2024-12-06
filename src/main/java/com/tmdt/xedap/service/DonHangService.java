@@ -5,9 +5,8 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 
 import com.tmdt.xedap.entity.DonHang;
-import com.tmdt.xedap.model.DonHangModel;
-import com.tmdt.xedap.model.DonThuThang;
-import com.tmdt.xedap.model.UpdateDonHangModel;
+import com.tmdt.xedap.dto.DonHangModel;
+import com.tmdt.xedap.dto.UpdateDonHangModel;
 
 public interface DonHangService {
 	

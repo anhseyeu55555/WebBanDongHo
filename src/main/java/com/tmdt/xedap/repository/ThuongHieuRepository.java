@@ -8,7 +8,7 @@ import com.tmdt.xedap.entity.ThuongHieu;
 public interface ThuongHieuRepository extends JpaRepository<ThuongHieu, String>{
 
 	
-	@Query(value="SELECT * FROM thuong_hieu WHERE math=?1", nativeQuery = true)
+	@Query(value="FROM ThuongHieu th WHERE th.math=:math")
 	ThuongHieu findByMath(String math);
 }
 

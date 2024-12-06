@@ -1,43 +1,21 @@
 package com.tmdt.xedap.entity;
 
+import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.io.Serializable;
 
-import jakarta.persistence.Embeddable;
-
 @Embeddable
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class CT_DonDatHang_ID implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
-	private String maddh;
-	private String masp;
-	
-	
-	public CT_DonDatHang_ID() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	
-	public CT_DonDatHang_ID(String maddh, String masp) {
-		super();
-		this.maddh = maddh;
-		this.masp = masp;
-	}
-	
-	
-	public String getMaddh() {
-		return maddh;
-	}
-	public void setMaddh(String maddh) {
-		this.maddh = maddh;
-	}
-	public String getMasp() {
-		return masp;
-	}
-	public void setMasp(String masp) {
-		this.masp = masp;
-	}
 
-	
-	
+    private static final long serialVersionUID = 1L;
+    private String maddh;
+    private String masp;
 }

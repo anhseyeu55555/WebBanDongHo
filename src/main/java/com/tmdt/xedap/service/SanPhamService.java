@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 
 import com.tmdt.xedap.entity.SanPham;
-import com.tmdt.xedap.model.SanPhamModel;
+import com.tmdt.xedap.dto.SanPhamModel;
 
 public interface SanPhamService {
 	
@@ -24,7 +24,7 @@ public interface SanPhamService {
 	List<SanPham> getListSanPhamByDM(String madm);
 	List<SanPham> getListSanPhamByTH(String math);
 	List<SanPham> getListSanPhamByNCC(String mancc);
-	List<SanPham> getListSanPhamByNew();
+
 	List<SanPham> getListSanPhamBySearch(String search);
 	List<SanPham> getListSanPhamBestSeller();
 }

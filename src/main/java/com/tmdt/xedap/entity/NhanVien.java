@@ -1,157 +1,61 @@
 package com.tmdt.xedap.entity;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name = "nhan_vien")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class NhanVien {
+    @Id
+    String manv;
 
-	@Id
-	String manv;
-	
-	String hoten;
-	String gioitinh;
-	String sdt;
-	String diachi;
-	String email;
-	float luong;
-	
-	@ManyToOne
-	@JoinColumn(name = "username")
-	private TaiKhoan taikhoan;
-	
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "nhanvien")
-	private List<DonDatHang> dondathang;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "nhanvien")
-	List<DonHang> listDH;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "giaohang")
-	List<DonHang> listDHGH;
+    @Column(name = "tennv")
+    String hoten;
 
-	public NhanVien() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    String gioitinh;
+    String sdt;
 
-	public NhanVien(String manv, String hoten, String gioitinh, String sdt, String diachi, String email, float luong,
-			TaiKhoan taikhoan, List<DonDatHang> dondathang, List<DonHang> listDH, List<DonHang> listDHGH) {
-		super();
-		this.manv = manv;
-		this.hoten = hoten;
-		this.gioitinh = gioitinh;
-		this.sdt = sdt;
-		this.diachi = diachi;
-		this.email = email;
-		this.luong = luong;
-		this.taikhoan = taikhoan;
-		this.dondathang = dondathang;
-		this.listDH = listDH;
-		this.listDHGH = listDHGH;
-	}
+    @Column(name = "dia_chi_vat_li")
+    String diachi;
 
-	public String getManv() {
-		return manv;
-	}
+    @Column(name = "dia_chi_email")
+    String email;
 
-	public void setManv(String manv) {
-		this.manv = manv;
-	}
+    float luong;
 
-	public String getHoten() {
-		return hoten;
-	}
+    @JsonIgnore
+    @OneToMany(mappedBy = "nhanvien")
+    List<DonHang> listDH;
+    @JsonIgnore
+    @OneToMany(mappedBy = "giaohang")
+    List<DonHang> listDHGH;
 
-	public void setHoten(String hoten) {
-		this.hoten = hoten;
-	}
+    @ManyToOne
+    @JoinColumn(name = "ten_tai_khoan")
+    private TaiKhoan taikhoan;
 
-	public String getGioitinh() {
-		return gioitinh;
-	}
+    @JsonIgnore
+    @OneToMany(mappedBy = "nhanvien")
+    private List<DonNhapHang> dondathang;
 
-	public void setGioitinh(String gioitinh) {
-		this.gioitinh = gioitinh;
-	}
-
-	public String getSdt() {
-		return sdt;
-	}
-
-	public void setSdt(String sdt) {
-		this.sdt = sdt;
-	}
-
-	public String getDiachi() {
-		return diachi;
-	}
-
-	public void setDiachi(String diachi) {
-		this.diachi = diachi;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public float getLuong() {
-		return luong;
-	}
-
-	public void setLuong(float luong) {
-		this.luong = luong;
-	}
-
-	public TaiKhoan getTaikhoan() {
-		return taikhoan;
-	}
-
-	public void setTaikhoan(TaiKhoan taikhoan) {
-		this.taikhoan = taikhoan;
-	}
-
-	public List<DonDatHang> getDondathang() {
-		return dondathang;
-	}
-
-	public void setDondathang(List<DonDatHang> dondathang) {
-		this.dondathang = dondathang;
-	}
-
-	public List<DonHang> getListDH() {
-		return listDH;
-	}
-
-	public void setListDH(List<DonHang> listDH) {
-		this.listDH = listDH;
-	}
-
-	public List<DonHang> getListDHGH() {
-		return listDHGH;
-	}
-
-	public void setListDHGH(List<DonHang> listDHGH) {
-		this.listDHGH = listDHGH;
-	}
-
-
-
-	
+    @JsonIgnore
+    @OneToOne(mappedBy = "nhanVien")
+    private ChiNhanh chiNhanh;
 }

@@ -10,6 +10,6 @@ import com.tmdt.xedap.entity.CT_DonHang;
 import com.tmdt.xedap.entity.CT_DonHang_ID;
 
 public interface CT_DonHangRepository extends JpaRepository<CT_DonHang, CT_DonHang_ID>{
-	@Query(value="SELECT * FROM ct_don_hang WHERE madh=?1", nativeQuery = true)
+	@Query(value="SELECT * FROM xedap.ct_don_hang WHERE madh=?1", nativeQuery = true)
 	List<CT_DonHang> findBymadh(String madh);
 }

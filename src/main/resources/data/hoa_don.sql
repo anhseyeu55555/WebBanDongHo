@@ -1,0 +1,10 @@
+INSERT INTO xedap.hoa_don (mahd, ngaylap, thanhtien, madh) VALUES ('HD194753', '2024-07-30', 810, 'DH194688');
+INSERT INTO xedap.hoa_don (mahd, ngaylap, thanhtien, madh) VALUES ('HD4739112', '2024-07-29', 350, 'DH4739103');
+INSERT INTO xedap.hoa_don (mahd, ngaylap, thanhtien, madh) VALUES ('HD4916943', '2024-07-29', 450, 'DH4916938');
+INSERT INTO xedap.hoa_don (mahd, ngaylap, thanhtien, madh) VALUES ('HD5225634', '2024-08-12', 30, 'DH5225622');
+INSERT INTO xedap.hoa_don (mahd, ngaylap, thanhtien, madh) VALUES ('HD6725816', '2024-08-12', 80, 'DH6725800');
+INSERT INTO xedap.hoa_don (mahd, ngaylap, thanhtien, madh) VALUES ('HD7889347', '2024-07-28', 60, 'DH7889284');
+INSERT INTO xedap.hoa_don (mahd, ngaylap, thanhtien, madh) VALUES ('HD7894586', '2024-07-28', 120, 'DH7894580');
+INSERT INTO xedap.hoa_don (mahd, ngaylap, thanhtien, madh) VALUES ('HD8358204', '2024-07-30', 1350, 'DH8358176');
+INSERT INTO xedap.hoa_don (mahd, ngaylap, thanhtien, madh) VALUES ('HD8364367', '2024-07-30', 500, 'DH8364360');
+INSERT INTO xedap.hoa_don (mahd, ngaylap, thanhtien, madh) VALUES ('HD8366537', '2024-07-30', 90, 'DH8366530');

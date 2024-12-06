@@ -7,11 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.tmdt.xedap.entity.NhaCungCap;
 import com.tmdt.xedap.entity.NhanVien;
 import com.tmdt.xedap.entity.Quyen;
 import com.tmdt.xedap.entity.TaiKhoan;
-import com.tmdt.xedap.model.NhanVienDangKy;
+import com.tmdt.xedap.dto.NhanVienDangKy;
 import com.tmdt.xedap.repository.NhanVienRepository;
 import com.tmdt.xedap.repository.TaiKhoanRepository;
 import com.tmdt.xedap.service.NhanVienService;

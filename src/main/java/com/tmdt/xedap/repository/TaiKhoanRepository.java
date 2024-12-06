@@ -10,7 +10,7 @@ import jakarta.transaction.Transactional;
 
 public interface TaiKhoanRepository extends JpaRepository<TaiKhoan, String>{
 
-	@Query(value="SELECT * FROM tai_khoan WHERE username=?1", nativeQuery = true)
+	@Query(value="SELECT * FROM tai_khoan WHERE ten_tai_khoan=?1", nativeQuery = true)
 	TaiKhoan findByUsername(String username);
 	
 	

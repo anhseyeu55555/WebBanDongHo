@@ -1,6 +1,5 @@
 package com.tmdt.xedap.service.impl;
 
-import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -16,10 +15,10 @@ import com.tmdt.xedap.entity.HoaDon;
 import com.tmdt.xedap.entity.KhachHang;
 import com.tmdt.xedap.entity.NhanVien;
 import com.tmdt.xedap.entity.SanPham;
-import com.tmdt.xedap.model.SanPhamDatHangModel;
-import com.tmdt.xedap.model.UpdateDonHangModel;
-import com.tmdt.xedap.model.DonHangModel;
-import com.tmdt.xedap.model.DonThuThang;
+import com.tmdt.xedap.dto.SanPhamDatHangModel;
+import com.tmdt.xedap.dto.UpdateDonHangModel;
+import com.tmdt.xedap.dto.DonHangModel;
+import com.tmdt.xedap.dto.DonThuThang;
 import com.tmdt.xedap.repository.CT_DonHangRepository;
 import com.tmdt.xedap.repository.DonHangRepository;
 import com.tmdt.xedap.repository.GioHangRepository;
@@ -139,20 +138,20 @@ public class DonHangServiceImpl implements DonHangService{
 					ctdh.setSanpham(findSP);
 					
 					SanPham updateSP = findSP;
-					int updateSoLuongSP = findSP.getSoluong() - item.getSoluong();
-					
-					if(updateSoLuongSP < 0) {
-						return new ResponseEntity<String>("Sản phẩm " + findSP.getTensp() + " không đủ số lượng bán, vui lòng kiểm tra lại!", HttpStatus.BAD_REQUEST);
-					}
-					
-					updateSP.setSoluong(updateSoLuongSP);
+//					int updateSoLuongSP = findSP.getSoLuong() - item.getSoluong();
+//
+//					if(updateSoLuongSP < 0) {
+//						return new ResponseEntity<String>("Sản phẩm " + findSP.getTenSp() + " không đủ số lượng bán, vui lòng kiểm tra lại!", HttpStatus.BAD_REQUEST);
+//					}
+//
+//					updateSP.setSoLuong(updateSoLuongSP);
 					
 					spRepository.save(updateSP);
 					
 					
 					ctdhRepository.save(ctdh);
 					
-					ghRepository.deleteGioHangByMakhAndMasp(dhModel.getMakh(), findSP.getMasp());
+					ghRepository.deleteGioHangByMakhAndMasp(dhModel.getMakh(), findSP.getMaSp());
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -198,12 +197,13 @@ public class DonHangServiceImpl implements DonHangService{
 		if(updateDHModel.getTrangthai() == 4) {
 			List<CT_DonHang> findCTDH = ctdhRepository.findBymadh(findDH.getMadh());
 			for(CT_DonHang item: findCTDH) {		
-				SanPham findSP = spRepository.findByMasp(item.getSanpham().getMasp());
+				SanPham findSP = spRepository.findByMasp(item.getSanpham().getMaSp());
 				
 				SanPham updateSP = findSP;
-				int updateSoLuongSP = findSP.getSoluong() + item.getSoluong();
-			
-				updateSP.setSoluong(updateSoLuongSP);
+				//todo change soluong to kho
+//				int updateSoLuongSP = findSP.getSoLuong() + item.getSoluong();
+//
+//				updateSP.setSoLuong(updateSoLuongSP);
 				
 				spRepository.save(updateSP);
 			}

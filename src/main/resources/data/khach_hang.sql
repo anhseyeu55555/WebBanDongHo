@@ -1,0 +1,4 @@
+INSERT INTO xedap.khach_hang (makh, dia_chi_vat_li, dia_chi_email, gioitinh, tenkh, sdt, ten_tai_khoan) VALUES ('KH1493613', 'Manh binh', 'manhbinh3012@gmail.com', 'Nam', 'manhbinh 40231', '123123123', 'manhbinh3012');
+INSERT INTO xedap.khach_hang (makh, dia_chi_vat_li, dia_chi_email, gioitinh, tenkh, sdt, ten_tai_khoan) VALUES ('KH7014680', 'Vinhome quận 9', 'manhbinh77@gmail.com', 'Nam', 'Mạnh Bình User', '123456', 'manhbinh77');
+INSERT INTO xedap.khach_hang (makh, dia_chi_vat_li, dia_chi_email, gioitinh, tenkh, sdt, ten_tai_khoan) VALUES ('KH7599500', 'GDSDFS', 'manhbinh66@gmail.com', 'Nam', 'Nguyen manh binh', '0912832143', 'manhbinh66');
+INSERT INTO xedap.khach_hang (makh, dia_chi_vat_li, dia_chi_email, gioitinh, tenkh, sdt, ten_tai_khoan) VALUES ('KH7735424', 'Hoai hai', 'manhbinh55@gmail.com', 'Nam', 'Nguyen MAnh Binh', '09127312421', 'manhbinh55');

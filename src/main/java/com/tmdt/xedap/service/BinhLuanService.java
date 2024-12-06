@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 
 import com.tmdt.xedap.entity.BinhLuan;
-import com.tmdt.xedap.model.BinhLuanModel;
+import com.tmdt.xedap.dto.BinhLuanModel;
 public interface BinhLuanService {
 
 	

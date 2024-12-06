@@ -2,8 +2,8 @@ package com.tmdt.xedap.service;
 
 import org.springframework.http.ResponseEntity;
 
-import com.tmdt.xedap.model.Login;
-import com.tmdt.xedap.model.LoginRes;
+import com.tmdt.xedap.dto.Login;
+import com.tmdt.xedap.dto.LoginRes;
 
 public interface TaiKhoanService {
 

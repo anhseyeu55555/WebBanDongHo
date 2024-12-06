@@ -1,136 +1,44 @@
 package com.tmdt.xedap.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.Collection;
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-
 @Entity
 @Table(name = "nha_cung_cap")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class NhaCungCap {
 
-	@Id
-	String mancc;
-	String tenncc;
-	String sdt;
-	String email;
-	String diachi;
-	String slug;
-	
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "nhacungcap")
-	private Collection<SanPham> sanpham;
-	
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "nhacungcap")
-	private Set<DonDatHang> dondathang;
+    @Id
+    String mancc;
+    String tenncc;
+    String sdt;
 
+    @Column(name = "dia_chi_email")
+    String email;
 
-	public NhaCungCap() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    @Column(name = "dia_chi_vat_li")
+    String diachi;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "nhaCungCap")
+    private Collection<SanPham> sanpham;
 
-	public NhaCungCap(String mancc, String tenncc, String sdt, String email, String diachi, String slug,
-			Collection<SanPham> sanpham, Set<DonDatHang> dondathang) {
-		super();
-		this.mancc = mancc;
-		this.tenncc = tenncc;
-		this.sdt = sdt;
-		this.email = email;
-		this.diachi = diachi;
-		this.slug = slug;
-		this.sanpham = sanpham;
-		this.dondathang = dondathang;
-	}
-
-
-	public String getMancc() {
-		return mancc;
-	}
-
-
-	public void setMancc(String mancc) {
-		this.mancc = mancc;
-	}
-
-
-	public String getTenncc() {
-		return tenncc;
-	}
-
-
-	public void setTenncc(String tenncc) {
-		this.tenncc = tenncc;
-	}
-
-
-	public String getSdt() {
-		return sdt;
-	}
-
-
-	public void setSdt(String sdt) {
-		this.sdt = sdt;
-	}
-
-
-	public String getEmail() {
-		return email;
-	}
-
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-
-	public String getDiachi() {
-		return diachi;
-	}
-
-
-	public void setDiachi(String diachi) {
-		this.diachi = diachi;
-	}
-
-
-	public String getSlug() {
-		return slug;
-	}
-
-
-	public void setSlug(String slug) {
-		this.slug = slug;
-	}
-
-
-	public Collection<SanPham> getSanpham() {
-		return sanpham;
-	}
-
-
-	public void setSanpham(Collection<SanPham> sanpham) {
-		this.sanpham = sanpham;
-	}
-
-
-	public Set<DonDatHang> getDondathang() {
-		return dondathang;
-	}
-
-
-	public void setDondathang(Set<DonDatHang> dondathang) {
-		this.dondathang = dondathang;
-	}
-
-	
+    @JsonIgnore
+    @OneToMany(mappedBy = "nhacungcap")
+    private Set<DonNhapHang> dondathang;
 }

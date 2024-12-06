@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 
 import com.tmdt.xedap.entity.HoaDon;
-import com.tmdt.xedap.model.HoaDonModel;
+import com.tmdt.xedap.dto.HoaDonModel;
 
 public interface HoaDonService {
 

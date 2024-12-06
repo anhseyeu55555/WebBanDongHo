@@ -14,9 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tmdt.xedap.entity.NhaCungCap;
 import com.tmdt.xedap.entity.NhanVien;
-import com.tmdt.xedap.model.NhanVienDangKy;
+import com.tmdt.xedap.dto.NhanVienDangKy;
 import com.tmdt.xedap.service.NhanVienService;
 
 @RestController
