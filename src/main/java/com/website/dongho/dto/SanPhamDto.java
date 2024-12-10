@@ -17,8 +17,6 @@ public class SanPhamDto {
     private float dongia;
     private String chitietSP;
     private String image;
-    private String image2;
-    private String image3;
     private int trangthai;
     private String madm;
     private String math;

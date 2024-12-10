@@ -8,6 +8,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION = @@COLLATION_CONNECTION */;
 SET GLOBAL sql_mode = (SELECT REPLACE(@@sql_mode, 'ONLY_FULL_GROUP_BY', ''));
 /*!40101 SET NAMES utf8mb4 */;
+create database if not exists donghodb;
 USE donghodb;
 
 --
