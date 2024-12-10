@@ -54,6 +54,10 @@ public class GioHangServiceImpl implements GioHangService {
             if (findSPGioHang == null) {
                 gh.setSoluong(soluong);
             } else {
+                if (findSPGioHang.getSoluong() < soluong) {
+                    return new ResponseEntity<String>("Sản số lượng sản phẩm trong giỏ hàng (" + soluong + ") không được vượt quá số lượng tồn (" + gh.getSoluong() + ")"
+                            , HttpStatus.BAD_REQUEST);
+                }
                 gh.setSoluong(findSPGioHang.getSoluong() + soluong);
             }
 

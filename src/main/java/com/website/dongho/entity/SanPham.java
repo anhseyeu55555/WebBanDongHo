@@ -29,9 +29,9 @@ public class SanPham {
     private int soluong;
     private float dongia;
     private String chitietSP;
+
+    @Column(name = "hinhanh")
     private String image;
-    private String image2;
-    private String image3;
     private int trangthai;
 
     @ManyToOne

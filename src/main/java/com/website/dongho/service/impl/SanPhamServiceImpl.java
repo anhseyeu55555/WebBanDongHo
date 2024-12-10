@@ -97,8 +97,6 @@ public class SanPhamServiceImpl implements SanPhamService {
             dataAddSP.setDongia(sanpham.getDongia());
             dataAddSP.setChitietSP(sanpham.getChitietSP());
             dataAddSP.setImage(sanpham.getImage());
-            dataAddSP.setImage2(sanpham.getImage2());
-            dataAddSP.setImage3(sanpham.getImage3());
             dataAddSP.setTrangthai(sanpham.getTrangthai());
             dataAddSP.setThuonghieu(findTH);
             dataAddSP.setDanhmuc(findDM);
