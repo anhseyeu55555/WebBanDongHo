@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DonNhapHangDto {
-	private String madnh;
+	private String maddh;
 	private String mancc;
 	private String manv;
 	private List<CT_DonNhaphangDto> ds;

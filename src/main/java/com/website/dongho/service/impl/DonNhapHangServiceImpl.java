@@ -54,14 +54,14 @@ public class DonNhapHangServiceImpl implements DonNhapHangService {
                 return new ResponseEntity<String>("Mã nhân viên không tồn tại!", HttpStatus.BAD_REQUEST);
             }
 
-            DonNhapHang findDdh = ddhRepository.findByMadnh(ddhModel.getMadnh());
+            DonNhapHang findDdh = ddhRepository.findByMadnh(ddhModel.getMaddh());
 
             if (findDdh != null) {
                 return new ResponseEntity<String>("Mã đơn hàng đặt đã tồn tại!", HttpStatus.BAD_REQUEST);
             }
 
             DonNhapHang ddh = new DonNhapHang();
-            ddh.setMadnh(ddhModel.getMadnh());
+            ddh.setMadnh(ddhModel.getMaddh());
             ddh.setNhacungcap(findNCC);
             ddh.setNhanvien(findNV);
             ddh.setNgaydat(LocalDate.now());
