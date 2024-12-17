@@ -12,8 +12,10 @@ import com.website.dongho.repository.CT_DonNhapHangRepository;
 import com.website.dongho.repository.DonNhapHangRepository;
 import com.website.dongho.repository.NhaCungCapRepository;
 import com.website.dongho.repository.NhanVienRepository;
+import com.website.dongho.repository.SanPhamRepository;
 import com.website.dongho.service.DonNhapHangService;
 import lombok.RequiredArgsConstructor;
+import org.apache.coyote.BadRequestException;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 
 @Service
@@ -33,6 +36,8 @@ public class DonNhapHangServiceImpl implements DonNhapHangService {
     private final NhanVienRepository nvRepository;
 
     private final NhaCungCapRepository nccRepository;
+
+    private final SanPhamRepository sanPhamRepository;
 
     @Override
     public List<DonNhapHang> getListService() {
@@ -81,16 +86,25 @@ public class DonNhapHangServiceImpl implements DonNhapHangService {
                     ct_ddh.setGia(ds.getGia());
                     ct_ddh.setSoluong(ds.getSoluong());
 
+                    SanPham sanPhamDb = sanPhamRepository.findByMasp(ds.getMasp());
+                    if (Objects.isNull(sanPhamDb)) {
+                        throw new BadRequestException("Mã Sản Phẩm không tồn tại!!");
+                    }
+
+                    int soluong = sanPhamDb.getSoluong() + ds.getSoluong();
+                    sanPhamDb.setSoluong(soluong);
+
+                    sanPhamRepository.save(sanPhamDb);
                     ct_dhhRepository.save(ct_ddh);
                 }
             } catch (Exception e) {
                 System.out.println(e);
                 return new ResponseEntity<String>("Đã xảy ra lỗi, thêm chi tiết đơn hàng thất bại!", HttpStatus.BAD_REQUEST);
             }
-            return new ResponseEntity<String>("Thêm đơn đạt hàng thành công!", HttpStatus.OK);
+            return new ResponseEntity<String>("Thêm đơn nhập hàng thành công!", HttpStatus.OK);
         } catch (Exception e) {
             System.out.println(e);
-            return new ResponseEntity<String>("Đã xảy ra lỗi, thêm danh mục thất bại!", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<String>("Đã xảy ra lỗi, thêm đơn nhập hàng thất bại!", HttpStatus.BAD_REQUEST);
         }
     }
 }
